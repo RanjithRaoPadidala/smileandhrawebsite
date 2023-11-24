@@ -11,6 +11,7 @@
   font-family: "Raleway", sans-serif;
   font-size: 15px;
   list-style-type: none;
+  padding-left: 0rem;
 }
 .hex {
   position: relative;
@@ -64,23 +65,25 @@
 .hex h1,
 .hex p {
   width: 100%;
-  padding: 5%;
-  color: #4154f1;
+  /* padding: 5%; */
+  color: #fff;
   box-sizing: border-box;
-  background-color: rgba(232, 208, 216, 0.95);
+  background-color: rgba(80, 69, 59, 0.75);
   font-weight: 300;
   -webkit-transition: -webkit-transform 0.2s ease-out, opacity 0.3s ease-out;
   transition: transform 0.2s ease-out, opacity 0.3s ease-out;
 }
 .hex h1 {
-  bottom: 50%;
-  padding-top: 50%;
-  font-size: 1em;
+  /* bottom: 50%; */
+  padding-top: 45%;
+  padding-bottom: 70%;
+  font-size: 1.5rem;
   font-weight: bold;
   z-index: 1;
   -webkit-transform: translate3d(0, -100%, 0);
   -ms-transform: translate3d(0, -100%, 0);
   transform: translate3d(0, -100%, 0);
+  text-align: center;
 }
 .hex h1::after {
   content: "";

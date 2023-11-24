@@ -32,13 +32,8 @@
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet" />
-    <!-- =======================================================
-  * Template Name: FlexStart
-  * Updated: Sep 18 2023 with Bootstrap v5.3.2
-  * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <link href="assets/css/navbar.css" rel="stylesheet" />
+    <link href="assets/css/breadcrum.css" rel="stylesheet" />
   </head>
   <body>
     <!-- ======= Header ======= -->
@@ -51,7 +46,7 @@
         </a>
         <nav id="navbar" class="navbar">
           <ul>
-            <li><a class="nav-link scrollto" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="index.html">Home</a></li>
             <li><a class="nav-link" href="about-us.html">About</a></li>
             <li class="dropdown">
               <a href="#"
@@ -69,7 +64,9 @@
             <li><a class="nav-link" href="themes.html">Themes</a></li>
             <li><a class="nav-link active" href="contact.html">Contact</a></li>
             <li>
-              <a class="getstarted scrollto" href="#about">Register Now</a>
+              <a class="getstarted scrollto" href="register.html"
+                >Register Now</a
+              >
             </li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
@@ -83,11 +80,12 @@
       <!-- ======= Contact Section ======= -->
       <section id="contact" class="contact">
         <div class="container" data-aos="fade-up">
-          <br />
-          <header class="section-header">
-            <h2>Contact</h2>
-            <p>Contact Us</p>
-          </header>
+          <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li>Enter Details</li>
+            <li class="disabled">Payment</li>
+          </ul>
           <div class="row gy-4">
             <div class="col-lg-12">
               <form

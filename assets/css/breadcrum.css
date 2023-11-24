@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;600&display=swap");
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+}
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Lexend", sans-serif;
+  color: #e42367;
+}
+ul.breadcrumb .disabled {
+  display: inline;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Lexend", sans-serif;
+  color: #9d9696;
+}
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  color: #e42367;
+  content: "\003E";
+}
+ul.breadcrumb li a {
+  color: #000;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #e42367;
+  text-decoration: none;
+}

@@ -60,7 +60,7 @@ section {
   font-size: 38px;
   line-height: 42px;
   font-weight: 700;
-  color: #012970;
+  color: #492080;
 }
 @media (max-width: 768px) {
   .section-header p {
@@ -206,7 +206,7 @@ section {
   font-family: "Lexend", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #013289;
+  color: #000;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -220,11 +220,11 @@ section {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover > a {
-  color: #4154f1;
+  color: #e42367;
 }
 .navbar .getstarted,
 .navbar .getstarted:focus {
-  background: #4154f1;
+  background: #e42367;
   padding: 8px 20px;
   margin-left: 30px;
   border-radius: 4px;

@@ -47,7 +47,7 @@ section {
   padding-bottom: 40px;
 }
 .section-header h2 {
-  font-size: 13px;
+  font-size: 22px;
   letter-spacing: 1px;
   font-weight: 700;
   margin: 0;
@@ -361,7 +361,7 @@ section {
 # Pricing
 --------------------------------------------------------------*/
 .pricing {
-  padding: 120px 0;
+  padding-top: 120px;
   overflow: hidden;
 }
 .pricing .box {

@@ -39,7 +39,7 @@ h6 {
 # Sections
 --------------------------------------------------------------*/
 section {
-  padding: 40px 0;
+  padding: 40px 0 20px 0;
   overflow: hidden;
 }
 .section-header {
@@ -60,12 +60,6 @@ section {
   line-height: 42px;
   font-weight: 700;
   color: #492080;
-}
-.section-header .info {
-  padding-top: 25px;
-  font-size: 20px;
-  font-weight: bold;
-  font-family: "Lexend", sans-serif;
 }
 @media (max-width: 768px) {
   .section-header p {

@@ -25,6 +25,6 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -i ~/.ssh/smile_andhra_pem.pem ubuntu@43.204.97.217 'sudo su && cd /var/www/smileandhrawebsite && git pull && sudo systemctl reload nginx'
+          ssh -i ~/.ssh/smile_andhra_pem.pem ubuntu@43.204.97.217 'cd /var/www/smileandhrawebsite && sudo git pull && sudo systemctl reload nginx'
         env:
           SMILE_ANDHRA_PEM: ${{ secrets.SMILE_ANDHRA_PEM }}

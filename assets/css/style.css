@@ -343,7 +343,7 @@ section {
 }
 .img-cal {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: left;
   padding: 30px 0 0 0;
 }
@@ -351,9 +351,23 @@ section {
   max-width: 100%;
   max-height: 100%;
 } */
-.text {
-  font-size: 20px;
-  padding-left: 20px;
+.text h2 {
+  font-size: 24px;
+  padding-left: 40px;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .text {
+    align-items: center;
+  }
+  .text h2 {
+    font-size: 18px;
+    padding-left: 20px;
+    font-weight: bold;
+  }
+  .img-cal .image {
+    display: none;
+  }
 }
 /*--------------------------------------------------------------
 # Index Page
@@ -1696,7 +1710,7 @@ section {
   top: 48px;
   right: -10px;
 }
-#countdown #tiles > span {
+#countdown .tiles > span {
   width: 62px;
   max-width: 62px;
   font: bold 28px "Lexend", sans-serif;
@@ -1709,7 +1723,7 @@ section {
   display: inline-block;
   position: relative;
 }
-#countdown #tiles > span:before {
+#countdown .tiles > span:before {
   content: "";
   width: 100%;
   height: 13px;
@@ -1724,18 +1738,22 @@ section {
   width: 100%;
   height: 25px;
   text-align: center;
-  bottom: 8px;
+  /* bottom: 8px; */
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  padding-left: 40px;
 }
 #countdown .labels li {
-  width: 102px;
+  /* width: 102px; */
   font: bold 15px "Lexend", sans-serif;
-  color: #f47321;
+  color: #fff;
   text-shadow: 1px 1px 0px #000;
   text-align: left;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   display: inline-block;
 }
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   #countdown {
     /* text-align: left; */
     margin: 0;
@@ -1749,7 +1767,7 @@ section {
     top: 48px;
     /* right: -10px; */
   }
-  #countdown #tiles > span {
+  #countdown .tiles > span {
     width: 30px;
     max-width: 30px;
     font: bold 16px "Lexend", sans-serif;
@@ -1762,7 +1780,7 @@ section {
     display: inline-block;
     position: relative;
   }
-  #countdown #tiles > span:before {
+  #countdown .tiles > span:before {
     content: "";
     width: 100%;
     height: 10px;
@@ -1773,4 +1791,11 @@ section {
     top: 41%;
     z-index: -1;
   }
+}
+.contact h2 {
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin: 0;
+  color: #000;
 }

@@ -116,7 +116,7 @@
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover > a {
-  color: #4154f1;
+  color: #e42367;
 }
 .navbar .dropdown:hover > ul {
   opacity: 1;
@@ -137,12 +137,12 @@
 }
 .navbar .megamenu ul li a,
 .navbar .megamenu ul li:hover > a {
-  color: #013289;
+  color: #e42367;
 }
 .navbar .megamenu ul li a:hover,
 .navbar .megamenu ul li .active,
 .navbar .megamenu ul li .active:hover {
-  color: #4154f1;
+  color: #e42367;
 }
 .navbar .dropdown .dropdown ul {
   top: 0;

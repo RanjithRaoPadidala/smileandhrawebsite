@@ -1,0 +1,60 @@
+.navbar a,
+.navbar a:focus {
+  color: #fff;
+}
+.navbar .dropdown ul {
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+.navbar .dropdown ul li {
+  min-width: 200px;
+}
+.header {
+  background: rgba(0, 0, 0, 0);
+  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+}
+.navbar-mobile .dropdown ul {
+  background: rgba(1, 22, 61, 1);
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0);
+}
+.header-scrolled {
+  background-color: #fff;
+  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+}
+.header-scrolled .navbar a,
+.navbar a:focus {
+  color: #000;
+}
+.header-scrolled .navbar .dropdown ul {
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+.header-scrolled .navbar a:hover,
+.header-scrolled .navbar .active,
+.header-scrolled .navbar .active:focus,
+.header-scrolled .navbar li:hover > a {
+  color: #e42367;
+}
+.header-scrolled .navbar .getstarted,
+.header-scrolled .navbar .getstarted:focus {
+  background: #e42367;
+  padding: 8px 20px;
+  margin-left: 30px;
+  border-radius: 4px;
+  color: #fff;
+}
+.header-scrolled .navbar .getstarted:hover,
+.header-scrolled .navbar .getstarted:focus:hover {
+  color: #fff;
+  background: #e42367;
+}
+.header-scrolled .navbar-mobile a,
+.header-scrolled .navbar-mobile a:focus {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #fff;
+}
+.header-scrolled .navbar-mobile .dropdown ul {
+  background: rgba(1, 22, 61, 1);
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0);
+}

@@ -60,23 +60,28 @@
    * Scrolls to an element with header offset
    */
   // const scrollto = (el) => {
-  //   let header = select('#header')
-  //   let offset = header.offsetHeight
-  //   if (!header.classList.contains('header-scrolled')) {
-  //     offset -= 10
+  //   let header = select("#header");
+  //   let offset = header.offsetHeight;
+  //   if (!header.classList.contains("header-scrolled")) {
+  //     offset -= 10;
   //   }
-  //   let elementPos = select(el).offsetTop
+  //   let elementPos = select(el).offsetTop;
   //   window.scrollTo({
   //     top: elementPos - offset,
-  //     behavior: 'smooth'
-  //   })
-  // }
+  //     behavior: "smooth",
+  //   });
+  // };
   /**
    * Toggle .header-scrolled class to #header when page is scrolled
    */
   let selectHeader = select("#header");
   if (selectHeader) {
     const headerScrolled = () => {
+      console.log(
+        "headerScrolled variable window.scrollY:",
+        window.scrollY,
+        selectHeader
+      );
       if (window.scrollY > 100) {
         selectHeader.classList.add("header-scrolled");
       } else {
@@ -148,6 +153,7 @@
    * Scroll with ofset on page load with hash links in the url
    */
   window.addEventListener("load", () => {
+    console.log("window.addEventListener variable load:", window.location.hash);
     if (window.location.hash) {
       if (select(window.location.hash)) {
         scrollto(window.location.hash);
@@ -284,3 +290,35 @@
    */
   new PureCounter();
 })();
+var target_date = new Date().getTime() + 1000 * 3600 * 48; // set the countdown date
+var days, hours, minutes, seconds; // variables for time units
+var countdown = document.getElementById("tiles"); // get tag element
+getCountdown();
+setInterval(function () {
+  getCountdown();
+}, 1000);
+function getCountdown() {
+  // find the amount of "seconds" between now and target
+  var current_date = new Date().getTime();
+  var seconds_left = (target_date - current_date) / 1000;
+  days = pad(parseInt(seconds_left / 86400));
+  seconds_left = seconds_left % 86400;
+  hours = pad(parseInt(seconds_left / 3600));
+  seconds_left = seconds_left % 3600;
+  minutes = pad(parseInt(seconds_left / 60));
+  seconds = pad(parseInt(seconds_left % 60));
+  // format countdown string + set tag value
+  countdown.innerHTML =
+    "<span>" +
+    days +
+    "</span><span>" +
+    hours +
+    "</span><span>" +
+    minutes +
+    "</span><span>" +
+    seconds +
+    "</span>";
+}
+function pad(n) {
+  return (n < 10 ? "0" : "") + n;
+}

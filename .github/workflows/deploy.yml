@@ -1,0 +1,23 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Create PEM file
+        run: echo "${{ secrets.SMILE_ANDHRA_PEM }}" > ~/.ssh/deploy.pem && chmod 600 ~/.ssh/deploy.pem
+
+      - name: Deploy to EC2
+        run: |
+          ssh -i ~/.ssh/deploy.pem ubuntu@43.204.97.217 'cd /var/www/smileandhrawebsite && git pull && sudo systemctl reload nginx'
+        env:
+          SMILE_ANDHRA_PEM: ${{ secrets.SMILE_ANDHRA_PEM }}

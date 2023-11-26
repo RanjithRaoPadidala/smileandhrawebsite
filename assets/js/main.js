@@ -290,7 +290,7 @@
    */
   new PureCounter();
 })();
-var target_date = new Date().getTime() + 1000 * 3600 * 48; // set the countdown date
+var target_date = new Date("2024-02-23").getTime(); // set the countdown date
 var days, hours, minutes, seconds; // variables for time units
 var countdown = document.getElementById("tiles"); // get tag element
 getCountdown();

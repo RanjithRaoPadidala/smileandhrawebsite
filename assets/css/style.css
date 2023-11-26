@@ -31,7 +31,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p,
+a {
   /* font-family: "Nunito", sans-serif; */
   font-family: "Lexend", sans-serif;
 }
@@ -1700,8 +1702,8 @@ section {
   font: bold 28px "Lexend", sans-serif;
   text-align: center;
   color: #111;
-  background-color: #fff;
-  border-top: 1px solid #fff;
+  background-color: #e7e7e8;
+  border-top: 1px solid #e7e7e8;
   margin: 0 18px 0 0;
   padding: 14px 0;
   display: inline-block;
@@ -1753,8 +1755,8 @@ section {
     font: bold 16px "Lexend", sans-serif;
     text-align: center;
     color: #111;
-    background-color: #fff;
-    border-top: 1px solid #fff;
+    background-color: #e7e7e8;
+    border-top: 1px solid #e7e7e8;
     margin: 0 18px 0 0;
     padding: 15px 0;
     display: inline-block;

@@ -23,7 +23,17 @@
   color: #000;
   margin-left: 50px;
   margin-right: 25px;
-  padding-top: 50px;
+  padding-top: 25px;
+  font-size: 17px;
+  line-height: 1.3em;
+  font-weight: 500;
+}
+.paragraph1 {
+  font-family: "Lexend", sans-serif;
+  color: #000;
+  margin-left: 50px;
+  margin-right: 25px;
+  padding-top: 30px;
   font-size: 17px;
   line-height: 1.3em;
   font-weight: 500;

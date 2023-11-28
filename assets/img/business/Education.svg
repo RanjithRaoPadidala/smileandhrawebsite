@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="145.349" height="118.918" viewBox="0 0 145.349 118.918">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e42367"/>
+      <stop offset="1" stop-color="#492080"/>
+    </linearGradient>
+  </defs>
+  <g id="Education" transform="translate(-1.999 -6)">
+    <path id="Path_191417" data-name="Path 191417" d="M59.775,37.151a9.935,9.935,0,0,1-7.039.008L10,20.878V57.784a3.3,3.3,0,0,0,2.129,3.087L55.072,77.223a3.3,3.3,0,0,0,2.349,0l42.943-16.351a3.3,3.3,0,0,0,2.129-3.087V20.877Z" transform="translate(18.428 34.266)" fill="url(#linear-gradient)"/>
+    <path id="Path_191418" data-name="Path 191418" d="M145.22,32.642,75.851,6.216a3.326,3.326,0,0,0-2.355,0L4.128,32.642a3.3,3.3,0,0,0,0,6.175L73.5,65.243a3.316,3.316,0,0,0,2.355,0L145.22,38.816a3.3,3.3,0,0,0,0-6.175Z" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+    <path id="Path_191419" data-name="Path 191419" d="M9.3,83.162a3.3,3.3,0,0,1-3.3-3.3V18.827a3.3,3.3,0,1,1,6.607,0V79.859A3.3,3.3,0,0,1,9.3,83.162Z" transform="translate(9.215 21.936)" fill="url(#linear-gradient)"/>
+    <path id="Path_191420" data-name="Path 191420" d="M13.91,34A9.921,9.921,0,0,0,4,43.91V57.123a3.3,3.3,0,0,0,3.3,3.3H20.516a3.3,3.3,0,0,0,3.3-3.3V43.91A9.921,9.921,0,0,0,13.91,34Z" transform="translate(4.608 64.492)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

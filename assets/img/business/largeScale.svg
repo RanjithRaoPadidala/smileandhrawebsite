@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="122.031" height="122.031" viewBox="0 0 122.031 122.031">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e42367"/>
+      <stop offset="1" stop-color="#492080"/>
+    </linearGradient>
+  </defs>
+  <g id="_97_Office_Building_Block_Apartment_Buildings_Hotel_Offices" data-name="97 Office Building, Block Apartment, Buildings, Hotel, Offices" transform="translate(-2 -2)">
+    <path id="Path_191416" data-name="Path 191416" d="M10.717,36.866a4.358,4.358,0,0,0-4.358,4.358v69.732H28.15V36.866ZM23.791,97.882H15.075V89.165h8.717Zm0-17.433H15.075V71.732h8.717Zm0-17.433H15.075V54.3h8.717Zm91.523-26.15H97.882v74.09h21.791V41.224A4.358,4.358,0,0,0,115.315,36.866Zm-4.358,61.016H102.24V89.165h8.717Zm0-17.433H102.24V71.732h8.717Zm0-17.433H102.24V54.3h8.717ZM89.165,2h-52.3a4.358,4.358,0,0,0-4.358,4.358v104.6H93.523V6.358A4.358,4.358,0,0,0,89.165,2ZM58.657,97.882H49.941V89.165h8.717Zm0-17.433H49.941V71.732h8.717Zm0-17.433H49.941V54.3h8.717Zm0-17.433H49.941V36.866h8.717Zm0-17.433H49.941V19.433h8.717ZM76.09,97.882H67.374V89.165H76.09Zm0-17.433H67.374V71.732H76.09Zm0-17.433H67.374V54.3H76.09Zm0-17.433H67.374V36.866H76.09Zm0-17.433H67.374V19.433H76.09Zm47.941,95.882H2v-8.717H124.031Z" transform="translate(0 0)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

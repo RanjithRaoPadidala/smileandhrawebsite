@@ -448,3 +448,8 @@ section {
 .services .service-box:hover .icon {
   background: #fff;
 }
+.whyattend-icon {
+  margin-right: 20px;
+  margin-bottom: 60px;
+  box-sizing: border-box;
+}

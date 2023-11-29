@@ -82,17 +82,13 @@
           </ul>
           <div class="row gy-4">
             <div class="col-lg-12">
-              <form
-                action="forms/contact.php"
-                method="post"
-                class="php-email-form"
-              >
+              <form id="registerForm" action="" class="contact-form">
                 <div class="row gy-4">
                   <div class="col-md-6">
                     <h6>Your First Name</h6>
                     <input
+                      id="register-firstname"
                       type="text"
-                      name="name"
                       class="form-control"
                       placeholder="Enter your First Name"
                       required
@@ -101,29 +97,29 @@
                   <div class="col-md-6">
                     <h6>Your Last Name</h6>
                     <input
+                      id="register-lastname"
                       type="text"
                       class="form-control"
-                      name="name"
                       placeholder="Enter your Last Name"
                       required
                     />
                   </div>
                   <div class="col-md-6">
-                    <h6>Large Scale Enterprise</h6>
+                    <h6>Start-up Name</h6>
                     <input
+                      id="register-startup_name"
                       type="text"
-                      name="name"
                       class="form-control"
-                      placeholder="Enter the name of your Large Scale Enterprise"
+                      placeholder="Enter the name of your start-up"
                       required
                     />
                   </div>
                   <div class="col-md-6">
                     <h6>Your Role</h6>
                     <input
+                      id="register-role"
                       type="text"
                       class="form-control"
-                      name="name"
                       placeholder="Enter your role at the start-up"
                       required
                     />
@@ -131,8 +127,9 @@
                   <div class="col-md-6">
                     <h6>Mobile Number</h6>
                     <input
-                      type="text"
-                      name="name"
+                      id="register-mobile"
+                      type="tel"
+                      pattern="[0-9]{10}"
                       class="form-control"
                       placeholder="Enter your Mobile Number"
                       required
@@ -141,9 +138,10 @@
                   <div class="col-md-6">
                     <h6>E-mail</h6>
                     <input
-                      type="text"
+                      id="register-email"
+                      type="email"
                       class="form-control"
-                      name="name"
+                      name="email"
                       placeholder="Enter your E-mail ID"
                       required
                     />
@@ -151,6 +149,7 @@
                   <div class="col-md-12">
                     <h6>Problem Statement</h6>
                     <textarea
+                      id="register-problem_statement"
                       class="form-control"
                       name="message"
                       rows="6"
@@ -161,6 +160,7 @@
                   <div class="col-md-12">
                     <h6>Technology stage</h6>
                     <textarea
+                      id="register-technology_stage"
                       class="form-control"
                       name="message"
                       rows="6"
@@ -171,9 +171,9 @@
                   <div class="col-md-12">
                     <h6>Website</h6>
                     <input
+                      id="register-website_link"
                       type="text"
                       class="form-control"
-                      name="name"
                       placeholder="Enter your website domain name"
                       required
                     />
@@ -190,7 +190,9 @@
                   </p>
                   <div class="col-md-12 text-center">
                     <div class="loading">Loading</div>
-                    <div class="error-message"></div>
+                    <div class="error-message">
+                      Sorry, your message is not sent. Please try again later.
+                    </div>
                     <div class="sent-message">
                       Your message has been sent. Thank you!
                     </div>
@@ -318,8 +320,7 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/contact-form/validate.js"></script>
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
   </body>

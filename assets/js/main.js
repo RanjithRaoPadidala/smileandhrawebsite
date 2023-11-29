@@ -77,11 +77,6 @@
   let selectHeader = select("#header");
   if (selectHeader) {
     const headerScrolled = () => {
-      console.log(
-        "headerScrolled variable window.scrollY:",
-        window.scrollY,
-        selectHeader
-      );
       if (window.scrollY > 100) {
         selectHeader.classList.add("header-scrolled");
       } else {
@@ -153,7 +148,6 @@
    * Scroll with ofset on page load with hash links in the url
    */
   window.addEventListener("load", () => {
-    console.log("window.addEventListener variable load:", window.location.hash);
     if (window.location.hash) {
       if (select(window.location.hash)) {
         scrollto(window.location.hash);
@@ -163,38 +157,38 @@
   /**
    * Clients Slider
    */
-  new Swiper(".clients-slider", {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    slidesPerView: "auto",
-    pagination: {
-      el: ".swiper-pagination",
-      type: "bullets",
-      clickable: true,
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 2,
-        spaceBetween: 40,
-      },
-      480: {
-        slidesPerView: 3,
-        spaceBetween: 60,
-      },
-      640: {
-        slidesPerView: 4,
-        spaceBetween: 80,
-      },
-      992: {
-        slidesPerView: 6,
-        spaceBetween: 120,
-      },
-    },
-  });
+  // new Swiper(".clients-slider", {
+  //   speed: 400,
+  //   loop: true,
+  //   autoplay: {
+  //     delay: 5000,
+  //     disableOnInteraction: false,
+  //   },
+  //   slidesPerView: "auto",
+  //   pagination: {
+  //     el: ".swiper-pagination",
+  //     type: "bullets",
+  //     clickable: true,
+  //   },
+  //   breakpoints: {
+  //     320: {
+  //       slidesPerView: 2,
+  //       spaceBetween: 40,
+  //     },
+  //     480: {
+  //       slidesPerView: 3,
+  //       spaceBetween: 60,
+  //     },
+  //     640: {
+  //       slidesPerView: 4,
+  //       spaceBetween: 80,
+  //     },
+  //     992: {
+  //       slidesPerView: 6,
+  //       spaceBetween: 120,
+  //     },
+  //   },
+  // });
   /**
    * Porfolio isotope and filter
    */
@@ -233,44 +227,44 @@
   /**
    * Portfolio details slider
    */
-  new Swiper(".portfolio-details-slider", {
-    speed: 400,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      type: "bullets",
-      clickable: true,
-    },
-  });
+  // new Swiper(".portfolio-details-slider", {
+  //   speed: 400,
+  //   autoplay: {
+  //     delay: 5000,
+  //     disableOnInteraction: false,
+  //   },
+  //   pagination: {
+  //     el: ".swiper-pagination",
+  //     type: "bullets",
+  //     clickable: true,
+  //   },
+  // });
   /**
    * Testimonials slider
    */
-  new Swiper(".testimonials-slider", {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    slidesPerView: "auto",
-    pagination: {
-      el: ".swiper-pagination",
-      type: "bullets",
-      clickable: true,
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 40,
-      },
-      1200: {
-        slidesPerView: 3,
-      },
-    },
-  });
+  // new Swiper(".testimonials-slider", {
+  //   speed: 600,
+  //   loop: true,
+  //   autoplay: {
+  //     delay: 5000,
+  //     disableOnInteraction: false,
+  //   },
+  //   slidesPerView: "auto",
+  //   pagination: {
+  //     el: ".swiper-pagination",
+  //     type: "bullets",
+  //     clickable: true,
+  //   },
+  //   breakpoints: {
+  //     320: {
+  //       slidesPerView: 1,
+  //       spaceBetween: 40,
+  //     },
+  //     1200: {
+  //       slidesPerView: 3,
+  //     },
+  //   },
+  // });
   /**
    * Animation on scroll
    */
@@ -290,13 +284,18 @@
    */
   new PureCounter();
 })();
-var target_date = new Date("2024-02-23").getTime(); // set the countdown date
+var target_date = new Date("2024-02-23  14:30:00").getTime(); // set the countdown date
 var days, hours, minutes, seconds; // variables for time units
 getCountdown();
-setInterval(function () {
-  getCountdown();
-}, 1000);
+if (document.getElementById("calendar-days")) {
+  setInterval(function () {
+    getCountdown();
+  }, 1000);
+}
 function getCountdown() {
+  if (!document.getElementById("calendar-days")) {
+    return;
+  }
   // find the amount of "seconds" between now and target
   var current_date = new Date().getTime();
   var seconds_left = (target_date - current_date) / 1000;
@@ -317,4 +316,125 @@ function getCountdown() {
 }
 function pad(n) {
   return (n < 10 ? "0" : "") + n;
+}
+let contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let name = document.getElementById("contact-name");
+    let email = document.getElementById("contact-email");
+    let subject = document.getElementById("contact-subject");
+    let message = document.getElementById("contact-message");
+    console.log(name, email, subject, message);
+    if (name.value == "" || email.value == "") {
+      alert("Please enter all required fields!");
+    } else {
+      // perform operation with form input
+      console.log(
+        `This form has a name of ${name.value} and email of ${email.value}`
+      );
+      const formData = new FormData();
+      formData.append("name", name.value);
+      formData.append("email", email.value);
+      formData.append("subject", subject?.value);
+      formData.append("message", message.value);
+      const response = await fetch("https://api.smileandhra.in/api/contact", {
+        method: "POST",
+        body: formData,
+      });
+      const res_obj = await response.json();
+      const msgStatus = res_obj.success ? "sent-message" : "error-message";
+      console.log(msgStatus);
+      const responseElement = document.getElementsByClassName(msgStatus);
+      responseElement[0].classList.add("d-block");
+      const myTimeout = setTimeout(() => {
+        responseElement[0].classList.remove("d-block");
+      }, 5000);
+      name.value = "";
+      email.value = "";
+      if (subject?.value) {
+        subject.value = "";
+      }
+      message.value = "";
+    }
+  });
+}
+let registerForm = document.getElementById("registerForm");
+if (registerForm) {
+  registerForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    let firstname = document.getElementById("register-firstname");
+    let lastname = document.getElementById("register-lastname");
+    let enterprise = document.getElementById("register-enterprise");
+    let investor_name = document.getElementById("register-investor_name");
+    let college_name = document.getElementById("register-college_name");
+    let startup_name = document.getElementById("register-startup_name");
+    let msme = document.getElementById("register-msme");
+    let role = document.getElementById("register-role");
+    let mobile = document.getElementById("register-mobile");
+    let email = document.getElementById("register-email");
+    let problem_statement = document.getElementById(
+      "register-problem_statement"
+    );
+    let technology_stage = document.getElementById("register-technology_stage");
+    let website_link = document.getElementById("register-website_link");
+    console.log(firstname, email, lastname);
+    if (name.value == "" || email.value == "") {
+      alert("Please enter all required fields!");
+    } else {
+      // perform operation with form input
+      console.log(
+        `This form has a name of ${firstname.value} and email of ${email.value}`
+      );
+      const formData = new FormData();
+      formData.append("firstname", firstname.value);
+      formData.append("lastname", lastname.value);
+      formData.append("role", role?.value);
+      formData.append("mobile", mobile?.value);
+      formData.append("problem_statement", problem_statement?.value);
+      formData.append("technology_stage", technology_stage?.value);
+      formData.append("email", email.value);
+      formData.append("enterprise", enterprise?.value);
+      formData.append("investor_name", investor_name?.value);
+      formData.append("college_name", college_name?.value);
+      formData.append("startup_name", startup_name?.value);
+      formData.append("msme", msme?.value);
+      formData.append("website_link", website_link?.value);
+      const response = await fetch("https://api.smileandhra.in/api/register", {
+        method: "POST",
+        body: formData,
+      });
+      const res_obj = await response.json();
+      const msgStatus = res_obj.success ? "sent-message" : "error-message";
+      console.log(msgStatus);
+      const responseElement = document.getElementsByClassName(msgStatus);
+      responseElement[0].classList.add("d-block");
+      const myTimeout = setTimeout(() => {
+        responseElement[0].classList.remove("d-block");
+      }, 5000);
+      // firstname.value = "";
+      // lastname.value = "";
+      // role.value = "";
+      // mobile.value = "";
+      // problem_statement.value = "";
+      // technology_stage.value = "";
+      // website_link.value = "";
+      // email.value = "";
+      // if (enterprise?.value) {
+      //   enterprise.value = "";
+      // }
+      // if (investor_name?.value) {
+      //   investor_name.value = "";
+      // }
+      // if (college_name?.value) {
+      //   college_name.value = "";
+      // }
+      // if (startup_name?.value) {
+      //   startup_name.value = "";
+      // }
+      // if (msme?.value) {
+      //   msme.value = "";
+      // }
+    }
+  });
 }

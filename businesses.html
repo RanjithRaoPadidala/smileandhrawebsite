@@ -48,7 +48,7 @@
               <a href="#" class="active"
                 ><span>Business</span> <i class="bi bi-chevron-down"></i
               ></a>
-              <ul>
+             <ul>
                 <li><a href="businesses.html?target=Startups">Start Up</a></li>
                 <li><a href="businesses.html?target=MSMEs">MSME</a></li>
                 <li>
@@ -1045,9 +1045,8 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <script>
-     console.log(window.location.search)
-     selectedId = window.location.search ? window.location.search.split("=")[1] : "Startups"
-     const activeTab = document.getElementById(selectedId).classList.add("active")
+    const selectedId = window.location.search ? window.location.search.split("=")[1] : "Startups"
+    const activeTab = document.getElementById(selectedId).classList.add("active")
       document.getElementById(selectedId+'-tab').children[0].classList.add("active");
     </script>
   </body>

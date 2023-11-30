@@ -1355,6 +1355,12 @@ section {
   /* text-transform: uppercase; */
   display: inline-block;
 }
+#countdown .labels li p {
+  width: 60px;
+  text-align: center;
+  margin-top: 5px;
+  /* margin: 0 18px 0 0; */
+}
 @media screen and (max-width: 768px) {
   .hero .btn-get-started {
     margin-top: 40px;
@@ -1366,6 +1372,12 @@ section {
   #countdown .labels li {
     width: 58px;
     font: bold 12px "Lexend", sans-serif;
+  }
+  #countdown .labels li p {
+    width: 45px;
+    text-align: center;
+    margin-top: 5px;
+    /* margin: 0 18px 0 0; */
   }
   #countdown:after {
     content: "";
@@ -1384,7 +1396,7 @@ section {
     color: #111;
     background-color: #e7e7e8;
     border-top: 1px solid #e7e7e8;
-    margin: 0 18px 0 0;
+    /* margin: 0 18px 0 0; */
     padding: 15px 0;
     display: inline-block;
     position: relative;

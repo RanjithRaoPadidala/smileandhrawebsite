@@ -383,9 +383,6 @@ if (registerForm) {
       alert("Please enter all required fields!");
     } else {
       // perform operation with form input
-      console.log(
-        `This form has a name of ${firstname.value} and email of ${email.value}`
-      );
       const formData = new FormData();
       formData.append("firstname", firstname.value);
       formData.append("lastname", lastname.value);

@@ -1,171 +1,207 @@
-* {
-  margin: 0;
-  padding: 0;
+.honey-item IMG {
+  width: 50%;
+  height: 50%;
+  display: inline;
+  margin-top: 25%;
+  margin-left: 25%;
+  opacity: 0.25;
 }
-#hexGrid {
-  display: flex;
-  flex-wrap: wrap;
-  /* width: 90%; */
-  margin: 0 auto;
-  overflow: hidden;
-  font-family: "Raleway", sans-serif;
-  font-size: 15px;
-  list-style-type: none;
-  padding-left: 0rem;
-}
-.hex {
+/* .honey-item IMG {
+  visibility: hidden;
+} */
+.honey-item {
+  width: 10rem;
+  height: 10rem;
   position: relative;
-  visibility: hidden;
-  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
+  /* Default - simple fallback when no CSS Grid support */
+  display: inline-block;
+  margin: 0.4rem;
 }
-.hex::after {
-  content: "";
-  display: block;
-  padding-bottom: 86.602%; /* =  100 / tan(60) * 1.5 */
-}
-.hexIn {
-  position: absolute;
-  width: 96%;
-  padding-bottom: 110.851%; /* =  width / sin(60) */
-  margin: 0 2%;
-  overflow: hidden;
-  visibility: hidden;
-  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
-  -webkit-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
-  -ms-transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
-  transform: rotate3d(0, 0, 1, -60deg) skewY(30deg);
-}
-.hexIn * {
-  position: absolute;
-  visibility: visible;
-  outline: 1px solid transparent; /* fix for jagged edges in FF on hover transition */
-}
-.hexLink {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  color: #fff;
-  overflow: hidden;
-  -webkit-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
-  -ms-transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
-  transform: skewY(-30deg) rotate3d(0, 0, 1, 60deg);
-}
-/*** HEX CONTENT **********************************************************************/
-.hex img {
-  left: -100%;
-  right: -100%;
-  width: "50%";
-  height: "50%";
-  margin: 0 auto;
-  -webkit-transform: rotate3d(0, 0, 0, 0deg);
-  -ms-transform: rotate3d(0, 0, 0, 0deg);
-  transform: rotate3d(0, 0, 0, 0deg);
-}
-.hex h1,
-.hex p {
-  width: 100%;
-  /* padding: 5%; */
-  color: #fff;
-  box-sizing: border-box;
-  background-color: rgba(80, 69, 59, 0.75);
-  font-weight: 300;
-  -webkit-transition: -webkit-transform 0.2s ease-out, opacity 0.3s ease-out;
-  transition: transform 0.2s ease-out, opacity 0.3s ease-out;
-}
-.hex h1 {
-  /* bottom: 50%; */
-  padding-top: 45%;
-  padding-bottom: 70%;
-  font-size: 1.5rem;
-  font-weight: bold;
-  z-index: 1;
-  -webkit-transform: translate3d(0, -100%, 0);
-  -ms-transform: translate3d(0, -100%, 0);
-  transform: translate3d(0, -100%, 0);
-  text-align: center;
-}
-.hex h1::after {
+.honey-item::before {
+  /* Goldenrod outline on the hexagon */
   content: "";
   position: absolute;
+  top: 0;
   bottom: 0;
-  left: 45%;
-  width: 10%;
+  left: 0;
+  right: 0;
+  background-color: rgb(102 43 141 / 85%);
+  opacity: 0.7;
+  clip-path: polygon(50% 0, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+  transform: scale(1.077);
+  transition: transform 0.3s;
+}
+/* .honey-item:hover {
+  background-color: #662b8d;
+  opacity: 1;
+  clip-path: polygon(
+    50% 0,
+    93.3% 25%,
+    93.3% 75%,
+    50% 100%,
+    6.7% 75%,
+    6.7% 25%
+  );
+} */
+.honey-item:hover::before {
+  opacity: 1;
+  transform: scale(1.154);
+}
+.honey-item:hover .honeycomb-cell_title {
+  display: none;
+}
+.honey-item:hover IMG {
+  opacity: 1;
+}
+.honey-item:hover A {
+  background-color: #fff;
+}
+.honey-item A {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* 	background-image: See JS. */
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(255 249 244 / 85%);
+  /* background-color: rgb(255 255 255); */
+  clip-path: polygon(50% 0, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+}
+@supports (display: grid) {
+  @media (min-width: 17rem) {
+    .honeycontainer {
+      display: grid;
+      max-width: 15rem;
+      grid-template-columns: repeat(3, 5rem);
+    }
+    .honey-item {
+      grid-column: span 2;
+      margin: 0; /* reset */
+      margin-bottom: -1.4rem; /* shifting up the honey-items in the next row */
+    }
+    .honey-item:nth-child(even) {
+      grid-column: 2;
+    }
+  }
+  @media (min-width: 22rem) {
+    .honeycontainer {
+      max-width: 20rem;
+      grid-template-columns: repeat(4, 5rem);
+    }
+    .honey-item:nth-child(3n + 1) {
+      grid-column: 1;
+    }
+    .honey-item:nth-child(3n + 2) {
+      grid-column: 3;
+    }
+    .honey-item:nth-child(3n + 0) {
+      grid-column: 2;
+    }
+  }
+  @media (min-width: 32rem) {
+    .honeycontainer {
+      max-width: 30rem;
+      grid-template-columns: repeat(6, 5rem);
+    }
+    .honey-item:nth-child(5n + 1) {
+      grid-column: 1;
+    }
+    .honey-item:nth-child(5n + 2) {
+      grid-column: 3;
+    }
+    .honey-item:nth-child(5n + 3) {
+      grid-column: 5;
+    }
+    .honey-item:nth-child(5n + 4) {
+      grid-column: 2;
+    }
+    .honey-item:nth-child(5n + 0) {
+      grid-column: 4;
+    }
+  }
+  @media (min-width: 42rem) {
+    .honeycontainer {
+      max-width: 40rem;
+      grid-template-columns: repeat(8, 5rem);
+    }
+    .honey-item:nth-child(7n + 1) {
+      grid-column: 1;
+    }
+    .honey-item:nth-child(7n + 2) {
+      grid-column: 3;
+    }
+    .honey-item:nth-child(7n + 3) {
+      grid-column: 5;
+    }
+    .honey-item:nth-child(7n + 4) {
+      grid-column: 7;
+    }
+    .honey-item:nth-child(7n + 5) {
+      grid-column: 2;
+    }
+    .honey-item:nth-child(7n + 6) {
+      grid-column: 4;
+    }
+    .honey-item:nth-child(7n + 0) {
+      grid-column: 6;
+    }
+  }
+  @media (min-width: 54rem) {
+    .honey-item {
+      width: 14rem;
+      height: 14rem;
+    }
+    .honeycontainer {
+      /* max-width: 50rem; */
+      grid-template-columns: repeat(10, 7rem);
+    }
+    .honey-item:nth-child(10n + 1) {
+      grid-column: 1;
+    }
+    .honey-item:nth-child(10n + 2) {
+      grid-column: 3;
+    }
+    .honey-item:nth-child(10n + 3) {
+      grid-column: 5;
+    }
+    .honey-item:nth-child(10n + 4) {
+      grid-column: 7;
+    }
+    .honey-item:nth-child(10n + 5) {
+      grid-column: 9;
+    }
+    .honey-item:nth-child(10n + 6) {
+      grid-column: 2;
+    }
+    .honey-item:nth-child(10n + 7) {
+      grid-column: 4;
+    }
+    .honey-item:nth-child(10n + 8) {
+      grid-column: 6;
+    }
+    .honey-item:nth-child(10n + 9) {
+      grid-column: 8;
+    }
+    .honey-item:nth-child(10n + 0) {
+      grid-column: 10;
+    }
+  }
+}
+.honey-item DIV {
+  font-size: larger;
+  z-index: 10;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.honey-item DIV span {
+  color: #54018b;
+  font-weight: bolder;
+  /* line-height: 100px; */
   text-align: center;
-  border-bottom: 1px solid #fff;
-}
-.hex p {
-  top: 47%;
-  padding-bottom: 50%;
-  -webkit-transform: translate3d(0, 100%, 0);
-  -ms-transform: translate3d(0, 100%, 0);
-  transform: translate3d(0, 100%, 0);
-  color: #000;
-}
-/*** HOVER EFFECT  **********************************************************************/
-.hexLink:hover h1,
-.hexLink:focus h1,
-.hexLink:hover p,
-.hexLink:focus p {
-  -webkit-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-/*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
-@media (min-width: 1201px) {
-  /* <- 5-4  hexagons per row */
-  #hexGrid {
-    padding-bottom: 4.4%;
-  }
-  .hex {
-    width: 18%; /* = 100 / 5 */
-  }
-  .hex:nth-child(10n + 6) {
-    /* first hexagon of even rows */
-    margin-left: 9%; /* = width of .hex / 2  to indent even rows */
-  }
-}
-@media (max-width: 1200px) and (min-width: 901px) {
-  /* <- 4-3  hexagons per row */
-  #hexGrid {
-    padding-bottom: 5.5%;
-  }
-  .hex {
-    width: 25%; /* = 100 / 4 */
-  }
-  .hex:nth-child(7n + 5) {
-    /* first hexagon of even rows */
-    margin-left: 12.5%; /* = width of .hex / 2  to indent even rows */
-  }
-}
-@media (max-width: 900px) and (min-width: 601px) {
-  /* <- 3-2  hexagons per row */
-  #hexGrid {
-    padding-bottom: 7.4%;
-  }
-  .hex {
-    width: 33.333%; /* = 100 / 3 */
-  }
-  .hex:nth-child(5n + 4) {
-    /* first hexagon of even rows */
-    margin-left: 16.666%; /* = width of .hex / 2  to indent even rows */
-  }
-}
-@media (max-width: 600px) {
-  /* <- 2-1  hexagons per row */
-  #hexGrid {
-    padding-bottom: 11.2%;
-  }
-  .hex {
-    width: 50%; /* = 100 / 3 */
-  }
-  .hex:nth-child(3n + 3) {
-    /* first hexagon of even rows */
-    margin-left: 25%; /* = width of .hex / 2  to indent even rows */
-  }
-}
-@media (max-width: 400px) {
-  #hexGrid {
-    font-size: 13px;
-  }
 }

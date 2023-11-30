@@ -284,7 +284,7 @@
    */
   new PureCounter();
 })();
-var target_date = new Date("2024-02-23  14:30:00").getTime(); // set the countdown date
+var target_date = new Date("2024-02-23 14:30:00".replace(/-/g, "/")).getTime(); // set the countdown date
 var days, hours, minutes, seconds; // variables for time units
 getCountdown();
 if (document.getElementById("calendar-days")) {

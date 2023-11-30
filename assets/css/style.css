@@ -10,6 +10,7 @@
 --------------------------------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600&display=swap");
 :root {
   scroll-behavior: smooth;
 }
@@ -51,7 +52,7 @@ section {
 .section-header h2 {
   font-size: 22px;
   letter-spacing: 1px;
-  font-weight: 700;
+  font-weight: 400;
   margin: 0;
   color: #000;
 }
@@ -166,7 +167,7 @@ section {
 }
 .register-icon-fluid {
   max-width: 30%;
-  height: auto;
+  height: 100px;
 }
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -378,9 +379,12 @@ section {
   .img-cal .image {
     display: none;
   }
+  .img-cal {
+    justify-content: center;
+  }
   .hero .event-text {
     font-size: 18px;
-    padding-left: 20px;
+    padding-left: 0;
     font-weight: bold;
   }
 }
@@ -1588,7 +1592,7 @@ section {
   background: #5969f3;
 }
 .footer .footer-top {
-  background: white url(../img/footer-bg.png) no-repeat right top;
+  /* background: white url(../img/footer-bg.png) no-repeat right top; */
   background-size: contain;
   border-top: 1px solid #e1ecff;
   border-bottom: 1px solid #e1ecff;

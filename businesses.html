@@ -49,11 +49,17 @@
                 ><span>Business</span> <i class="bi bi-chevron-down"></i
               ></a>
               <ul>
-                <li><a href="businesses.html">Start Up</a></li>
-                <li><a href="businesses.html">MSME</a></li>
-                <li><a href="businesses.html">Large Scale Enterprise</a></li>
-                <li><a href="businesses.html">Investors</a></li>
-                <li><a href="businesses.html">Academia</a></li>
+                <li><a href="businesses.html?target=Startups">Start Up</a></li>
+                <li><a href="businesses.html?target=MSMEs">MSME</a></li>
+                <li>
+                  <a href="businesses.html?target=Enterprises"
+                    >Large Scale Enterprise</a
+                  >
+                </li>
+                <li>
+                  <a href="businesses.html?target=Investors">Investors</a>
+                </li>
+                <li><a href="businesses.html?target=Academia">Academia</a></li>
               </ul>
             </li>
             <li><a class="nav-link" href="themes.html">Themes</a></li>
@@ -83,28 +89,28 @@
             <div class="col-lg-12">
               <!-- Tabs -->
               <ul class="nav nav-pills mb-3">
-                <li>
-                  <a class="nav-link active" data-bs-toggle="pill" href="#tab1"
+                <li id="Startups-tab">
+                  <a class="nav-link" data-bs-toggle="pill" href="#Startups" 
                     >Start Ups</a
                   >
                 </li>
-                <li>
-                  <a class="nav-link" data-bs-toggle="pill" href="#tab2"
+                <li id="MSMEs-tab">
+                  <a class="nav-link" data-bs-toggle="pill" href="#MSMEs"
                     >MSMEs</a
                   >
                 </li>
-                <li>
-                  <a class="nav-link" data-bs-toggle="pill" href="#tab3"
+                <li id="Investors-tab">
+                  <a class="nav-link" data-bs-toggle="pill" href="#Investors" 
                     >Investors</a
                   >
                 </li>
-                <li>
-                  <a class="nav-link" data-bs-toggle="pill" href="#tab4"
+                <li id="Academia-tab">
+                  <a class="nav-link" data-bs-toggle="pill" href="#Academia" 
                     >Academia</a
                   >
                 </li>
-                <li>
-                  <a class="nav-link" data-bs-toggle="pill" href="#tab5"
+                <li id="Enterprises-tab">
+                  <a class="nav-link" data-bs-toggle="pill" href="#Enterprises" 
                     >Large Enterprises </a
                   >
                 </li>
@@ -114,7 +120,7 @@
               <!-- Tab Content -->
               <div class="tab-content">
                 <!-- Tab One starts Here -->
-                <div class="tab-pane fade show active" id="tab1">
+                <div class="tab-pane fade show" id="Startups">
                   <header class="section-header">
                     <p>Be a Part of The Emerging Force</p>
                     <div class="info">
@@ -255,7 +261,7 @@
                   </p>
                 </div>
                 <!-- End Tab 1 Content -->
-                <div class="tab-pane fade show" id="tab2">
+                <div class="tab-pane fade show" id="MSMEs">
                   <header class="section-header">
                     <p>Navigate the Dynamic Business Landscape with SMiLE</p>
                     <div class="info">
@@ -404,7 +410,7 @@
                       </p>
                 </div>
                 <!-- End Tab 2 Content -->
-                <div class="tab-pane fade show" id="tab3">
+                <div class="tab-pane fade show" id="Investors">
                   <header class="section-header">
                     <p>Invest in Future, Invest in Andhra!</p>
                     <div class="info">
@@ -570,7 +576,7 @@
                     </p>
                 </div>
                 <!-- End Tab 4 Content -->
-                <div class="tab-pane fade show" id="tab4">
+                <div class="tab-pane fade show" id="Academia">
                   <header class="section-header">
                     <p>Invest in Future, Invest in Andhra!</p>
                     <div class="info">
@@ -761,7 +767,7 @@
                     </p>
                 </div>
                 <!-- End Tab 5 Content -->
-                <div class="tab-pane fade show" id="tab5">
+                <div class="tab-pane fade show" id="Enterprises">
                   <header class="section-header">
                     <p>A Sustainable future for you with SMILE</p>
                     <div class="info">
@@ -1036,9 +1042,13 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    
-    <script src="assets/vendor/contact-form/validate.js"></script>
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+     console.log(window.location.search)
+     selectedId = window.location.search ? window.location.search.split("=")[1] : "Startups"
+     const activeTab = document.getElementById(selectedId).classList.add("active")
+      document.getElementById(selectedId+'-tab').children[0].classList.add("active");
+    </script>
   </body>
 </html>

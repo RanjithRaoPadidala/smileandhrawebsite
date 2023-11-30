@@ -269,7 +269,7 @@ section {
 }
 .articles .container::before {
   content: "";
-  background-image: url("../img/aboutsUsBg.png");
+  /* background-image: url("../img/aboutsUsBg.png"); */
   background-size: cover;
   position: absolute;
   top: 0px;
@@ -279,7 +279,7 @@ section {
   z-index: -1;
 }
 .articles .black-layer {
-  background-color: #000;
+  /* background-color: #000; */
   opacity: 0.6;
   padding: 40px;
 }
@@ -289,12 +289,12 @@ section {
 .articles h2 {
   font-size: 24px;
   font-weight: 1000;
-  color: #fff;
+  color: #000;
 }
 .articles p {
   margin-top: 15px;
   line-height: 24px;
-  color: #fff;
+  color: #000;
 }
 .articles .btn-read-more {
   line-height: 0;

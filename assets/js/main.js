@@ -77,13 +77,14 @@
   let selectHeader = select("#header");
   if (selectHeader) {
     const headerScrolled = () => {
-      if (window.scrollY > 100) {
+      console.log(window.scrollY);
+      if (window.scrollY > 200) {
         selectHeader.classList.add("header-scrolled");
       } else {
         selectHeader.classList.remove("header-scrolled");
       }
     };
-    window.addEventListener("load", headerScrolled);
+    // window.addEventListener("load", headerScrolled);
     onscroll(document, headerScrolled);
   }
   /**
@@ -92,7 +93,7 @@
   let backtotop = select(".back-to-top");
   if (backtotop) {
     const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 200) {
         backtotop.classList.add("active");
       } else {
         backtotop.classList.remove("active");
@@ -147,13 +148,13 @@
   /**
    * Scroll with ofset on page load with hash links in the url
    */
-  window.addEventListener("load", () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash);
-      }
-    }
-  });
+  // window.addEventListener("load", () => {
+  //   if (window.location.hash) {
+  //     if (select(window.location.hash)) {
+  //       scrollto(window.location.hash);
+  //     }
+  //   }
+  // });
   /**
    * Clients Slider
    */
@@ -192,32 +193,32 @@
   /**
    * Porfolio isotope and filter
    */
-  window.addEventListener("load", () => {
-    let portfolioContainer = select(".portfolio-container");
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: ".portfolio-item",
-        layoutMode: "fitRows",
-      });
-      let portfolioFilters = select("#portfolio-flters li", true);
-      on(
-        "click",
-        "#portfolio-flters li",
-        function (e) {
-          e.preventDefault();
-          portfolioFilters.forEach(function (el) {
-            el.classList.remove("filter-active");
-          });
-          this.classList.add("filter-active");
-          portfolioIsotope.arrange({
-            filter: this.getAttribute("data-filter"),
-          });
-          aos_init();
-        },
-        true
-      );
-    }
-  });
+  // window.addEventListener("load", () => {
+  //   let portfolioContainer = select(".portfolio-container");
+  //   if (portfolioContainer) {
+  //     // let portfolioIsotope = new Isotope(portfolioContainer, {
+  //     //   itemSelector: ".portfolio-item",
+  //     //   layoutMode: "fitRows",
+  //     // });
+  //     // let portfolioFilters = select("#portfolio-flters li", true);
+  //     // on(
+  //     //   "click",
+  //     //   "#portfolio-flters li",
+  //     //   function (e) {
+  //     //     e.preventDefault();
+  //     //     portfolioFilters.forEach(function (el) {
+  //     //       el.classList.remove("filter-active");
+  //     //     });
+  //     //     this.classList.add("filter-active");
+  //     //     portfolioIsotope.arrange({
+  //     //       filter: this.getAttribute("data-filter"),
+  //     //     });
+  //     //     aos_init();
+  //     //   },
+  //     //   true
+  //     // );
+  //   }
+  // });
   /**
    * Initiate portfolio lightbox
    */
@@ -322,6 +323,7 @@ if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     let name = document.getElementById("contact-name");
+    let mobile = document.getElementById("contact-mobile");
     let email = document.getElementById("contact-email");
     let subject = document.getElementById("contact-subject");
     let message = document.getElementById("contact-message");
@@ -335,6 +337,7 @@ if (contactForm) {
       );
       const formData = new FormData();
       formData.append("name", name.value);
+      formData.append("mobile", email.mobile);
       formData.append("email", email.value);
       formData.append("subject", subject?.value);
       formData.append("message", message.value);
@@ -351,6 +354,7 @@ if (contactForm) {
         responseElement[0].classList.remove("d-block");
       }, 5000);
       name.value = "";
+      mobile.value = "";
       email.value = "";
       if (subject?.value) {
         subject.value = "";

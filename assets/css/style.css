@@ -276,6 +276,11 @@ section {
   margin: 15px 0 0 0;
   font-size: 26px;
 }
+.hero .event-text {
+  color: #fff;
+  margin: 0 0 10px 0;
+  font-size: 26px;
+}
 .hero .btn-get-started {
   margin-top: 30px;
   line-height: 0;
@@ -356,6 +361,11 @@ section {
   padding-left: 40px;
   font-weight: bold;
 }
+.hero .event-text {
+  font-size: 24px;
+  padding-left: 40px;
+  font-weight: bold;
+}
 @media screen and (max-width: 768px) {
   .text {
     align-items: center;
@@ -367,6 +377,11 @@ section {
   }
   .img-cal .image {
     display: none;
+  }
+  .hero .event-text {
+    font-size: 18px;
+    padding-left: 20px;
+    font-weight: bold;
   }
 }
 /*--------------------------------------------------------------
@@ -1711,7 +1726,7 @@ section {
   right: -10px;
 }
 #countdown .tiles > span {
-  width: 62px;
+  width: 82px;
   max-width: 62px;
   font: bold 28px "Lexend", sans-serif;
   text-align: center;
@@ -1741,7 +1756,7 @@ section {
   /* bottom: 8px; */
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin-top: 10px;
   padding-left: 40px;
 }
 #countdown .labels li {
@@ -1754,9 +1769,16 @@ section {
   display: inline-block;
 }
 @media screen and (max-width: 768px) {
+  .hero .btn-get-started {
+    margin-top: 40px;
+  }
   #countdown {
     /* text-align: left; */
     margin: 0;
+  }
+  #countdown .labels li {
+    width: 58px;
+    font: bold 12px "Lexend", sans-serif;
   }
   #countdown:after {
     content: "";
@@ -1768,8 +1790,8 @@ section {
     /* right: -10px; */
   }
   #countdown .tiles > span {
-    width: 30px;
-    max-width: 30px;
+    width: 45px;
+    max-width: 50px;
     font: bold 16px "Lexend", sans-serif;
     text-align: center;
     color: #111;

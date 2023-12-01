@@ -410,41 +410,41 @@ if (registerForm) {
       formData.append("startup_name", startup_name?.value);
       formData.append("msme", msme?.value);
       formData.append("website_link", website_link?.value);
-      // const response = await fetch("https://api.smileandhra.in/api/register", {
-      //   method: "POST",
-      //   body: formData,
-      // });
-      // const res_obj = await response.json();
-      // const msgStatus = res_obj.success ? "sent-message" : "error-message";
+      const response = await fetch("https://api.smileandhra.in/api/register", {
+        method: "POST",
+        body: formData,
+      });
+      const res_obj = await response.json();
+      const msgStatus = res_obj.success ? "sent-message" : "error-message";
       // console.log(msgStatus);
       const responseElement = document.getElementsByClassName(msgStatus);
       responseElement[0].classList.add("d-block");
       const myTimeout = setTimeout(() => {
         responseElement[0].classList.remove("d-block");
       }, 5000);
-      // firstname.value = "";
-      // lastname.value = "";
-      // role.value = "";
-      // mobile.value = "";
-      // problem_statement.value = "";
-      // technology_stage.value = "";
-      // website_link.value = "";
-      // email.value = "";
-      // if (enterprise?.value) {
-      //   enterprise.value = "";
-      // }
-      // if (investor_name?.value) {
-      //   investor_name.value = "";
-      // }
-      // if (college_name?.value) {
-      //   college_name.value = "";
-      // }
-      // if (startup_name?.value) {
-      //   startup_name.value = "";
-      // }
-      // if (msme?.value) {
-      //   msme.value = "";
-      // }
+      firstname.value = "";
+      lastname.value = "";
+      role.value = "";
+      mobile.value = "";
+      problem_statement.value = "";
+      technology_stage.value = "";
+      website_link.value = "";
+      email.value = "";
+      if (enterprise?.value) {
+        enterprise.value = "";
+      }
+      if (investor_name?.value) {
+        investor_name.value = "";
+      }
+      if (college_name?.value) {
+        college_name.value = "";
+      }
+      if (startup_name?.value) {
+        startup_name.value = "";
+      }
+      if (msme?.value) {
+        msme.value = "";
+      }
     }
   });
 }

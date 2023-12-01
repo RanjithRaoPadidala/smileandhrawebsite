@@ -221,7 +221,7 @@ section {
 }
 .features .feature-icons .content .icon-box {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 }
 .features .feature-icons .content .icon-box h4 {
   font-size: 20px;

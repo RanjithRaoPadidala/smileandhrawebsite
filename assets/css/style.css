@@ -504,6 +504,9 @@ section {
   overflow: hidden;
 }
 .pricing .box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 40px;
   margin: 20px;
   background: #fff;

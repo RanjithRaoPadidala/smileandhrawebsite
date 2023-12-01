@@ -289,6 +289,7 @@ var target_date = new Date("2024-02-15 09:00:00".replace(/-/g, "/")).getTime(); 
 var days, hours, minutes, seconds; // variables for time units
 getCountdown();
 if (document.getElementById("calendar-days")) {
+  console.log("setting calendar timer");
   setInterval(function () {
     getCountdown();
   }, 1000);

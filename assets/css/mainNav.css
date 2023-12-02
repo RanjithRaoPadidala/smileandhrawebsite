@@ -11,7 +11,7 @@
 }
 .header {
   background: rgba(0, 0, 0, 0);
-  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+  /* box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1); */
 }
 .navbar-mobile .dropdown ul {
   background: rgba(1, 22, 61, 1);

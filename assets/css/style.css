@@ -250,10 +250,10 @@ section {
 }
 @media only screen and (max-width: 768px) {
   .bg-image {
-    background: url(../img/main-bg.jpg) top center no-repeat;
+    background: url(../img/mobile-bg.webp) top center no-repeat;
     background-size: cover !important;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
   }
   .bg-image .bg-layer {
     width: 100%;
@@ -1197,7 +1197,7 @@ section {
   margin-bottom: 15px;
 }
 .footer .footer-top .footer-info .logo img {
-  max-height: 70px;
+  max-height: 100px;
   margin-right: 6px;
 }
 .footer .footer-top .footer-info .logo span {

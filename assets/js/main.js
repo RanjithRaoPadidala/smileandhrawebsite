@@ -77,7 +77,6 @@
   let selectHeader = select("#header");
   if (selectHeader) {
     const headerScrolled = () => {
-      console.log(window.scrollY);
       if (window.scrollY > 200) {
         selectHeader.classList.add("header-scrolled");
       } else {
@@ -387,11 +386,11 @@ if (registerForm) {
     if (
       firstname.value == "" ||
       mobile.value == "" ||
-      (enterprise.value == "" &&
-        investor_name.value == "" &&
-        college_name.value == "" &&
-        startup_name.value == "" &&
-        msme.value == "")
+      (enterprise?.value == "" &&
+        investor_name?.value == "" &&
+        college_name?.value == "" &&
+        startup_name?.value == "" &&
+        msme?.value == "")
     ) {
       alert("Please enter all required fields!");
     } else {
@@ -426,8 +425,12 @@ if (registerForm) {
       lastname.value = "";
       role.value = "";
       mobile.value = "";
-      problem_statement.value = "";
-      technology_stage.value = "";
+      if (problem_statement?.value) {
+        problem_statement.value = "";
+      }
+      if (technology_stage?.value) {
+        technology_stage.value = "";
+      }
       website_link.value = "";
       email.value = "";
       if (enterprise?.value) {
@@ -445,6 +448,7 @@ if (registerForm) {
       if (msme?.value) {
         msme.value = "";
       }
+      // window.location.href = "payment_redirect.html";
     }
   });
 }

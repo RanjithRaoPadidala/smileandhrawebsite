@@ -454,16 +454,12 @@ if (registerForm) {
         if (msme?.value) {
           msme.value = "";
         }
-        console.log("registerForm.addEventListener variable res_obj:", res_obj);
         localStorage.setItem("Registrationdetails", JSON.stringify(res_obj));
         if (res_obj.success) {
           const msgStatus = "sent-message";
           const responseElement = document.getElementsByClassName(msgStatus);
           responseElement[0].classList.add("d-block");
           window.location.href = "payment_redirect.html";
-          // const myTimeout = setTimeout(() => {
-          //   responseElement[0].classList.remove("d-block");
-          // }, 2000);
         } else {
           const msgStatus = "error-message";
           const responseElement = document.getElementsByClassName(msgStatus);
@@ -472,13 +468,6 @@ if (registerForm) {
             responseElement[0].classList.remove("d-block");
           }, 5000);
         }
-        // const msgStatus = res_obj.success ? "sent-message" : "error-message";
-        // // console.log(msgStatus);
-        // const responseElement = document.getElementsByClassName(msgStatus);
-        // responseElement[0].classList.add("d-block");
-        // const myTimeout = setTimeout(() => {
-        //   responseElement[0].classList.remove("d-block");
-        // }, 2000);
       });
     }
   });

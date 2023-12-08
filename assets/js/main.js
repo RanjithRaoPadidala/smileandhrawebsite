@@ -421,18 +421,18 @@ if (registerForm) {
       formData.append("startup_name", startup_name?.value);
       formData.append("msme", msme?.value);
       formData.append("website_link", website_link?.value);
-      // const response = await fetch("https://api.smileandhra.in/api/register", {
-      //   method: "POST",
-      //   body: formData,
-      // });
-      // const res_obj = await response.json();
-      // const msgStatus = res_obj.success ? "sent-message" : "error-message";
-      // // console.log(msgStatus);
-      // const responseElement = document.getElementsByClassName(msgStatus);
-      // responseElement[0].classList.add("d-block");
-      // const myTimeout = setTimeout(() => {
-      //   responseElement[0].classList.remove("d-block");
-      // }, 5000);
+      const response = await fetch("https://api.smileandhra.in/api/register", {
+        method: "POST",
+        body: formData,
+      });
+      const res_obj = await response.json();
+      const msgStatus = res_obj.success ? "sent-message" : "error-message";
+      // console.log(msgStatus);
+      const responseElement = document.getElementsByClassName(msgStatus);
+      responseElement[0].classList.add("d-block");
+      const myTimeout = setTimeout(() => {
+        responseElement[0].classList.remove("d-block");
+      }, 5000);
       firstname.value = "";
       lastname.value = "";
       role.value = "";
@@ -460,7 +460,7 @@ if (registerForm) {
       if (msme?.value) {
         msme.value = "";
       }
-      window.location.href = "payment_redirect.html";
+      // window.location.href = "payment_redirect.html";
     }
   });
 }

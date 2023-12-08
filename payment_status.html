@@ -29,6 +29,7 @@
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/navbar.css" rel="stylesheet" />
     <link href="assets/css/breadcrum.css" rel="stylesheet" />
+    <!-- <script data-main="libs/main" src="libs/require.js"></script> -->
   </head>
   <body>
     <!-- ======= Header ======= -->
@@ -62,9 +63,7 @@
               </ul>
             </li>
             <li><a class="nav-link" href="themes.html">Themes</a></li>
-            <!-- <li>
-              <a class="nav-link active" href="contact.html">Contact</a>
-            </li> -->
+            <!-- <li><a class="nav-link" href="contact.html">Contact</a></li> -->
             <li>
               <a class="getstarted scrollto" href="register.html"
                 >Register Now</a
@@ -77,161 +76,26 @@
       </div>
     </header>
     <!-- End Header -->
-    <!-- End Hero -->
     <main id="main">
-      <!-- ======= Contact Section ======= -->
-      <section id="contact" class="contact">
+      <!-- ======= Pricing Section ======= -->
+      <div id="pricing" class="pricing">
         <div class="container" data-aos="fade-up">
           <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li><a href="register.html">Register</a></li>
-            <li>Enter Details</li>
-            <li class="disabled">Payment</li>
+            <li class="disabled">Enter Details</li>
+            <li>Payment</li>
           </ul>
-          <div class="row gy-4">
-            <div class="col-lg-12">
-              <form id="registerForm" action="" class="contact-form">
-                <div class="row gy-4">
-                  <div class="col-md-6">
-                    <h6>Your First Name</h6>
-                    <input
-                      id="register-firstname"
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter your First Name"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <h6>Your Last Name</h6>
-                    <input
-                      id="register-lastname"
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter your Last Name"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <h6>College Name</h6>
-                    <input
-                      id="register-college_name"
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter the name of your college"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <h6>Your Role</h6>
-                    <input
-                      id="register-role"
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter your role at the College"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <h6>Mobile Number</h6>
-                    <input
-                      id="register-mobile"
-                      type="tel"
-                      pattern="[0-9]{10}"
-                      class="form-control"
-                      placeholder="Enter your Mobile Number"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-6">
-                    <h6>E-mail</h6>
-                    <input
-                      id="register-email"
-                      type="email"
-                      class="form-control"
-                      name="email"
-                      placeholder="Enter your E-mail ID"
-                      required
-                    />
-                  </div>
-                  <div class="col-md-12">
-                    <h6>Problem Statement</h6>
-                    <textarea
-                      id="register-problem_statement"
-                      class="form-control"
-                      name="message"
-                      rows="6"
-                      placeholder="Does your college have an entrepreneurship development cell? : Yes/No"
-                      required
-                    ></textarea>
-                  </div>
-                  <div class="col-md-12">
-                    <h6>College Website</h6>
-                    <input
-                      id="register-website_link"
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter your website domain name"
-                      required
-                    />
-                  </div>
-                  <p>
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="checkBox1"
-                    />
-                    SMILE Summit is a closed door private initiative for
-                    decision makers, by submitting this form you agree that you
-                    are the founder/decision maker at your organisation.<br />
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="checkBox2"
-                    />
-                    I hereby confirm my participation to attend SMILE Andhra. In
-                    case of my unavailability to attend the show, I will
-                    delegate another representative from my organixation with
-                    similar profile to attend the summit.
-                    <br />
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="checkBox3"
-                    />
-                    (LOGO CONSENT) I consent the organisers of SMILE Andhra to
-                    use our company logo as one of the attendees in the official
-                    event website
-                    <br />
-                    <input
-                      type="checkbox"
-                      class="custom-control-input"
-                      id="checkBox4"
-                    />
-                    I agree to my contact details to be passed on to the Event's
-                    Sponsors/Partners to contact me as a follow-up to my
-                    participation at the Event. I understand that any use of
-                    such data is governed by the respective Sponsor's/Partner's
-                    Privacy Policy.
-                  </p>
-                  <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message">
-                      Sorry, your message is not sent. Please try again later.
-                    </div>
-                    <div class="sent-message">
-                      Your message has been sent. Thank you! Redirecting to
-                      payment shortly...
-                    </div>
-                    <button type="submit">Proceed to Pay</button>
-                  </div>
-                </div>
-              </form>
+          <div class="row gy-4" data-aos="fade-left">
+            <div class="col-lg-12 col-md-12" data-aos="zoom-in">
+              <div class="box">
+                <h3>Updating your payment status</h3>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-      <!-- End Contact Section -->
+      </div>
+      <!-- End Pricing Section -->
     </main>
     <!-- End #main -->
     <!-- ======= Footer ======= -->
@@ -351,7 +215,24 @@
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.2.0/index.min.js"></script> -->
+    <!-- <script src="https://requirejs.org/docs/release/2.3.5/comments/require.js"></script> -->
+    <!-- <script src="assets/vendor/contact-form/validate.js"></script> -->
+    <script src="libs/crypto-js.min.js"></script>
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+      // var hash = CryptoJS.SHA256("Message");
+      // console.log(hash.toString(CryptoJS.enc.Hex));
+      // var crypto = require(["crypto-js"]);
+      // define(function (require) {
+      //   var name = require("crypto-js");
+      //   //Define the module as exporting a function
+      //   return function () {
+      //     name.doSomething();
+      //   };
+      // });
+    </script>
   </body>
 </html>

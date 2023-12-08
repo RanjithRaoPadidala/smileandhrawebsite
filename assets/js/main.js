@@ -425,42 +425,61 @@ if (registerForm) {
         method: "POST",
         body: formData,
       });
-      const res_obj = await response.json();
-      const msgStatus = res_obj.success ? "sent-message" : "error-message";
-      // console.log(msgStatus);
-      const responseElement = document.getElementsByClassName(msgStatus);
-      responseElement[0].classList.add("d-block");
-      const myTimeout = setTimeout(() => {
-        responseElement[0].classList.remove("d-block");
-      }, 5000);
-      firstname.value = "";
-      lastname.value = "";
-      role.value = "";
-      mobile.value = "";
-      if (problem_statement?.value) {
-        problem_statement.value = "";
-      }
-      if (technology_stage?.value) {
-        technology_stage.value = "";
-      }
-      website_link.value = "";
-      email.value = "";
-      if (enterprise?.value) {
-        enterprise.value = "";
-      }
-      if (investor_name?.value) {
-        investor_name.value = "";
-      }
-      if (college_name?.value) {
-        college_name.value = "";
-      }
-      if (startup_name?.value) {
-        startup_name.value = "";
-      }
-      if (msme?.value) {
-        msme.value = "";
-      }
-      // window.location.href = "payment_redirect.html";
+      // const res_obj = await response.json();
+      await response.json().then((res_obj) => {
+        firstname.value = "";
+        lastname.value = "";
+        role.value = "";
+        mobile.value = "";
+        if (problem_statement?.value) {
+          problem_statement.value = "";
+        }
+        if (technology_stage?.value) {
+          technology_stage.value = "";
+        }
+        website_link.value = "";
+        email.value = "";
+        if (enterprise?.value) {
+          enterprise.value = "";
+        }
+        if (investor_name?.value) {
+          investor_name.value = "";
+        }
+        if (college_name?.value) {
+          college_name.value = "";
+        }
+        if (startup_name?.value) {
+          startup_name.value = "";
+        }
+        if (msme?.value) {
+          msme.value = "";
+        }
+        console.log("registerForm.addEventListener variable res_obj:", res_obj);
+        localStorage.setItem("Registrationdetails", JSON.stringify(res_obj));
+        if (res_obj.success) {
+          const msgStatus = "sent-message";
+          const responseElement = document.getElementsByClassName(msgStatus);
+          responseElement[0].classList.add("d-block");
+          window.location.href = "payment_redirect.html";
+          // const myTimeout = setTimeout(() => {
+          //   responseElement[0].classList.remove("d-block");
+          // }, 2000);
+        } else {
+          const msgStatus = "error-message";
+          const responseElement = document.getElementsByClassName(msgStatus);
+          responseElement[0].classList.add("d-block");
+          const myTimeout = setTimeout(() => {
+            responseElement[0].classList.remove("d-block");
+          }, 5000);
+        }
+        // const msgStatus = res_obj.success ? "sent-message" : "error-message";
+        // // console.log(msgStatus);
+        // const responseElement = document.getElementsByClassName(msgStatus);
+        // responseElement[0].classList.add("d-block");
+        // const myTimeout = setTimeout(() => {
+        //   responseElement[0].classList.remove("d-block");
+        // }, 2000);
+      });
     }
   });
 }

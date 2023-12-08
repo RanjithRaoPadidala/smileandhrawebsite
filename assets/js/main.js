@@ -383,7 +383,18 @@ if (registerForm) {
     let technology_stage = document.getElementById("register-technology_stage");
     let website_link = document.getElementById("register-website_link");
     console.log(firstname, email, lastname);
+    let termsAccepted = false;
     if (
+      !(
+        document.getElementById("checkBox1")?.checked &&
+        document.getElementById("checkBox2")?.checked &&
+        document.getElementById("checkBox3")?.checked &&
+        document.getElementById("checkBox4")?.checked
+      )
+    ) {
+      alert("Please accept all terms and conditions.");
+      return;
+    } else if (
       firstname.value == "" ||
       mobile.value == "" ||
       (enterprise?.value == "" &&
@@ -393,6 +404,7 @@ if (registerForm) {
         msme?.value == "")
     ) {
       alert("Please enter all required fields!");
+      return;
     } else {
       // perform operation with form input
       const formData = new FormData();
@@ -409,18 +421,18 @@ if (registerForm) {
       formData.append("startup_name", startup_name?.value);
       formData.append("msme", msme?.value);
       formData.append("website_link", website_link?.value);
-      const response = await fetch("https://api.smileandhra.in/api/register", {
-        method: "POST",
-        body: formData,
-      });
-      const res_obj = await response.json();
-      const msgStatus = res_obj.success ? "sent-message" : "error-message";
-      // console.log(msgStatus);
-      const responseElement = document.getElementsByClassName(msgStatus);
-      responseElement[0].classList.add("d-block");
-      const myTimeout = setTimeout(() => {
-        responseElement[0].classList.remove("d-block");
-      }, 5000);
+      // const response = await fetch("https://api.smileandhra.in/api/register", {
+      //   method: "POST",
+      //   body: formData,
+      // });
+      // const res_obj = await response.json();
+      // const msgStatus = res_obj.success ? "sent-message" : "error-message";
+      // // console.log(msgStatus);
+      // const responseElement = document.getElementsByClassName(msgStatus);
+      // responseElement[0].classList.add("d-block");
+      // const myTimeout = setTimeout(() => {
+      //   responseElement[0].classList.remove("d-block");
+      // }, 5000);
       firstname.value = "";
       lastname.value = "";
       role.value = "";
@@ -448,7 +460,7 @@ if (registerForm) {
       if (msme?.value) {
         msme.value = "";
       }
-      // window.location.href = "payment_redirect.html";
+      window.location.href = "payment_redirect.html";
     }
   });
 }

@@ -1428,3 +1428,41 @@ section {
   font-size: 42px;
   font-weight: 800;
 }
+
+
+.btn-prefill {
+  display: inline-block;
+  padding: 8px 40px 8px 40px;
+  border-radius: 50px;
+  color: #e42367;
+  background: #fff;
+  transition: none;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 15px 0;
+  /* font-family: "Nunito", sans-serif; */
+  font-family: "Lexend", sans-serif;
+  font-weight: 600;
+  transition: 0.3s;
+  border: 1px solid #e42367;
+}
+.btn-prefill:hover {
+  background: #e42367;
+  color: #fff;
+}
+
+.prefill-section span{
+  text-align: end;
+}
+@media (max-width: 768px) {
+  .prefill-section {
+    padding: 0 10%;
+  }
+  .prefill-section span{
+    text-align: center;
+    margin: 20px 0 10px 0;
+  }
+  .prefill-section .btn-prefill {
+    align-items: center;
+  }
+}

@@ -421,6 +421,7 @@ if (registerForm) {
       formData.append("startup_name", startup_name?.value);
       formData.append("msme", msme?.value);
       formData.append("website_link", website_link?.value);
+      formData.append("gst", gst?.value);
       let application_type = "";
       if (enterprise?.value) {
         application_type = "ENTERPRISE";
@@ -452,6 +453,7 @@ if (registerForm) {
           technology_stage.value = "";
         }
         website_link.value = "";
+        gst.value = "";
         email.value = "";
         if (enterprise?.value) {
           enterprise.value = "";

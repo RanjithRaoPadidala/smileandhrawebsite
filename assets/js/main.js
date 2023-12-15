@@ -421,6 +421,20 @@ if (registerForm) {
       formData.append("startup_name", startup_name?.value);
       formData.append("msme", msme?.value);
       formData.append("website_link", website_link?.value);
+      let application_type = "";
+      if (enterprise?.value) {
+        application_type = "ENTERPRISE";
+      } else if (investor_name?.value) {
+        application_type = "INVESTOR";
+      } else if (college_name?.value) {
+        application_type = "COLLEGE";
+      } else if (startup_name?.value) {
+        application_type = "STARTUP";
+      } else if (msme?.value) {
+        application_type = "MSME";
+      }
+      formData.append("application_type", application_type);
+      localStorage.setItem("application_type", application_type);
       const response = await fetch("https://api.smileandhra.in/api/register", {
         method: "POST",
         body: formData,

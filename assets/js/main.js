@@ -1,10 +1,3 @@
-/**
- * Template Name: FlexStart
- * Updated: Sep 18 2023 with Bootstrap v5.3.2
- * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
- * Author: BootstrapMade.com
- * License: https://bootstrapmade.com/license/
- */
 (function () {
   "use strict";
   /**
@@ -377,6 +370,7 @@ if (registerForm) {
     let role = document.getElementById("register-role");
     let mobile = document.getElementById("register-mobile");
     let email = document.getElementById("register-email");
+    let gst = document.getElementById("register-gst");
     let problem_statement = document.getElementById(
       "register-problem_statement"
     );
@@ -436,8 +430,22 @@ if (registerForm) {
       }
       formData.append("application_type", application_type);
       localStorage.setItem("application_type", application_type);
+
+      const ref_number = document.getElementById("register-refnumber")?.value;
+      console.log(ref_number);
+      let method = "POST";
+      if(ref_number) {
+        method = "PUT";
+        formData.append("application_reference", ref_number);
+        console.log( localStorage.getItem("prefillRegistrationDetails"));
+        if (localStorage.getItem("prefillRegistrationDetails")) {
+          let registration_id = JSON.parse(localStorage.getItem("prefillRegistrationDetails"))?.registration_id;
+          formData.append("registration_id", registration_id);
+        }
+        // formData.append("registration_id", ref_number);
+      }
       const response = await fetch("https://api.smileandhra.in/api/register", {
-        method: "POST",
+        method: method,
         body: formData,
       });
       // const res_obj = await response.json();
@@ -487,4 +495,30 @@ if (registerForm) {
       });
     }
   });
+}
+
+async function getRegistrationDetails() {
+  const ref_number = document.getElementById("register-refnumber")?.value;
+  console.log('prefill called', ref_number);
+  if(!ref_number) {
+    alert("Please enter valid reference number");
+  }
+  const response = await fetch(`https://api.smileandhra.in/api/register?application_reference=${ref_number}`, {
+    method: "GET",
+  });
+  const res_obj = await response.json();
+  console.log(res_obj);     
+  if(res_obj?.success && res_obj?.info) {
+    localStorage.setItem("prefillRegistrationDetails", JSON.stringify(res_obj?.info));
+    for (let key in res_obj.info) {
+      console.log(key, res_obj.info[key]);
+      if (document.getElementById(`register-${key}`)) {
+        if(key === "problem_statement" || key === "technology_stage") {
+          document.getElementById(`register-${key}`).innerHTML = res_obj?.info[key];
+        } else {
+          document.getElementById(`register-${key}`).setAttribute('value', res_obj?.info[key]);
+        }
+      }
+    }
+  }
 }

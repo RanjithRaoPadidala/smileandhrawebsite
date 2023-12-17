@@ -1,145 +1,87 @@
-// const newPayment = async () => {
-//   try {
-//     const merchant_id = "PGTESTPAYUAT";
-//     const salt_key = "099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
-//     const req = {
-//       body: {
-//         MUID: "MUID" + Date.now(),
-//         transactionId: "T" + Date.now(),
-//         name: "name",
-//         amount: 1,
-//         number: 1234567890,
-//       },
-//     };
-//     const merchantTransactionId = req.body.transactionId;
-//     const data = {
-//       merchantId: merchant_id,
-//       transactionId: merchantTransactionId,
-//       merchantUserId: req.body.MUID,
-//       name: req.body.name,
-//       amount: req.body.amount * 100,
-//       redirectUrl: `https://smileandhra.in/`,
-//       // redirectUrl: `http://localhost:5000/api/status/${merchantTransactionId}`,
-//       redirectMode: "REDIRECT",
-//       mobileNumber: req.body.number,
-//       // paymentInstrument: {
-//       //   type: "PAY_PAGE",
-//       // },
-//     };
-//     const payload = JSON.stringify(data);
-//     // const payloadMain = Buffer.from(payload).toString("base64");
-//     const payloadMain = btoa(payload);
-//     const keyIndex = 1;
-//     // const string = payloadMain + "/pg/v1/pay" + salt_key;
-//     const string = payloadMain + "/v4/debit" + salt_key;
-//     // const sha256 = crypto.createHash("sha256").update(string).digest("hex");
-//     const sha256 = CryptoJS.SHA256(string).toString(CryptoJS.enc.Hex);
-//     const checksum = sha256 + "###" + keyIndex;
-//     // const prod_URL = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
-//     const options = {
-//       method: "POST",
-//       headers: {
-//         accept: "application/json",
-//         "Content-Type": "application/json",
-//         // "X-CALLBACK-URL": "https://www.demoMerchant.com/callback",
-//         "X-VERIFY": checksum,
-//         "X-REDIRECT-URL": "https://smileandhra.in/",
-//         "X-REDIRECT-MODE": "HTTP",
-//         mode: "cors",
-//       },
-//       body: JSON.stringify({ request: payloadMain }),
-//     };
-//     await fetch("https://mercury-uat.phonepe.com/v4/debit/", options)
-//       .then((response) => response.json())
-//       .then((response) => console.log(response))
-//       .catch((err) => console.error(err));
-//     // const prod_URL = "https://mercury-uat.phonepe.com/v4/debit/";
-//     // const options = {
-//     //   method: "POST",
-//     //   headers: {
-//     //     "Access-Control-Allow-Origin": "*",
-//     //     accept: "application/json",
-//     //     "Content-Type": "application/json",
-//     //     "X-CALLBACK-URL": "https://smileandhra.in/",
-//     //     "X-VERIFY": checksum,
-//     //     "X-REDIRECT-URL": "https://smileandhra.in/",
-//     //     "X-REDIRECT-MODE": "HTTP",
-//     //   },
-//     //   body: JSON.stringify({ request: payloadMain }),
-//     //   mode: "cors",
-//     // };
-//     // console.log(options);
-//     // const rawResponse = await fetch(prod_URL, options);
-//     // const content = await rawResponse.json();
-//     // console.log(content);
-//     window.location.href = content.data.instrumentResponse.redirectInfo.url;
-//   } catch (error) {
-//     console.log(error);
-//     // res.status(500).send({
-//     //   message: error.message,
-//     //   success: false,
-//     // });
-//   }
-// };
-// const checkStatus = async (req, res) => {
-//   const merchantTransactionId = res.req.body.transactionId;
-//   const merchantId = res.req.body.merchantId;
-//   const keyIndex = 1;
-//   const string =
-//     `/pg/v1/status/${merchantId}/${merchantTransactionId}` + salt_key;
-//   const sha256 = crypto.createHash("sha256").update(string).digest("hex");
-//   const checksum = sha256 + "###" + keyIndex;
-//   const options = {
-//     method: "GET",
-//     url: `https://api.phonepe.com/apis/hermes/pg/v1/status/${merchantId}/${merchantTransactionId}`,
-//     headers: {
-//       accept: "application/json",
-//       "Content-Type": "application/json",
-//       "X-VERIFY": checksum,
-//       "X-MERCHANT-ID": `${merchantId}`,
-//     },
-//   };
-//   axios
-//     .request(options)
-//     .then(async (response) => {
-//       if (response.data.success === true) {
-//         console.log(".then variable data:", response.data);
-//         const url = `http://localhost:3000/success`;
-//         return res.redirect(url);
-//       } else {
-//         const url = `http://localhost:3000/failure`;
-//         return res.redirect(url);
-//       }
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });
-// };
-const newPayment = async () => {
-  const regDetails = JSON.parse(localStorage.getItem("Registrationdetails"));
-  console.log(
-    "newPayment variable regDetails:",
-    regDetails.info.registration_id
-  );
-  const response = await fetch(
-    "https://api.smileandhra.in/api/payment/initiate",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        registration_id: regDetails.info.registration_id,
-        amount: 1,
-      }),
-    }
-  );
-  const res_obj = await response.json();
-  console.log("newPayment variable res_obj:", res_obj);
-  window.location.href = res_obj.info.pay_page_url;
-  console.log(
-    "newPayment variable  window.location.href:",
-    window.location.href
-  );
-};
-setTimeout(newPayment, 5000);
+let paymentForm = document.getElementById("paymentForm");
+if (paymentForm) {
+  paymentForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const regDetails = JSON.parse(localStorage.getItem("Registrationdetails"));
+    const application_type = localStorage.getItem("application_type");
+    console.log(
+      "newPayment variable regDetails:",
+      regDetails.info.registration_id, application_type
+    );
+    const amount = application_type === "COLLEGE" ? 11788 : 23589;
+    const response = await fetch(
+      "https://api.smileandhra.in/api/payment/initiate",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          registration_id: regDetails.info.registration_id,
+          amount: amount,
+        }),
+      }
+    );
+    const res_obj = await response.json();
+    console.log("newPayment variable res_obj:", res_obj);
+    localStorage.setItem("payment_initiate", JSON.stringify(res_obj?.info));
+
+    window.location.href = res_obj.info.pay_page_url;
+    console.log(
+      "newPayment variable  window.location.href:",
+      window.location.href
+    );
+  })
+}
+
+registration_response = localStorage.getItem("Registrationdetails");
+application_type = localStorage.getItem("application_type");
+console.log(registration_response)
+if (registration_response) {
+  // id="registration-name"
+  reg_details = JSON.parse(registration_response)?.info;
+  console.log(`${reg_details.firstname} ${reg_details.lastname}`);
+  console.log(`${reg_details.gst} ${reg_details.investor_name}`);
+  let userName = `${reg_details.firstname} ${reg_details.lastname}`;
+  let gstin = reg_details.gst;
+  let ref_no = reg_details.application_reference;
+  let source = "";
+  let pass_fees = application_type === "COLLEGE" ? "₹9,990" : "₹19,990";
+  let gst_fees = application_type === "COLLEGE" ? "₹1,798" : "₹3,599";
+  let total_payment = application_type === "COLLEGE" ? "₹11,788" : "₹23,589";
+  if(application_type === "INVESTOR") {
+    source = reg_details.investor_name
+  } else if(application_type === "ENTERPRISE") {
+    source = reg_details.enterprise
+  } else if(application_type === "COLLEGE") {
+    source = reg_details.college_name
+  } else if(application_type === "STARTUP") {
+    source = reg_details.startup_name
+  } else if(application_type === "MSME") {
+    source = reg_details.msme
+  }
+  
+  if(document.getElementById("registration-ref-no")) {
+    document.getElementById("registration-ref-no").innerHTML = ref_no;
+  }
+  if(document.getElementById("registration-name")) {
+    document.getElementById("registration-name").innerHTML = userName;
+  }
+  if(document.getElementById("registration-gst")) {
+    document.getElementById("registration-gst").innerHTML = gstin;
+  }
+  if(document.getElementById("registration-source")) {
+    document.getElementById("registration-source").innerHTML = source;
+  }
+  if(document.getElementById("registration-fee")) {
+    document.getElementById("registration-fee").innerHTML = pass_fees;
+  }
+  if(document.getElementById("registration-gstfee")) {
+    document.getElementById("registration-gstfee").innerHTML = gst_fees;
+  }
+  if(document.getElementById("registration-totalfee")) {
+    document.getElementById("registration-totalfee").innerHTML = total_payment;
+  }
+  
+
+}

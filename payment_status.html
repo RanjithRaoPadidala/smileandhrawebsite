@@ -29,6 +29,7 @@
     <link href="assets/css/style.css" rel="stylesheet" />
     <link href="assets/css/navbar.css" rel="stylesheet" />
     <link href="assets/css/breadcrum.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
     <!-- <script data-main="libs/main" src="libs/require.js"></script> -->
   </head>
   <body>
@@ -83,16 +84,42 @@
           <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li><a href="register.html">Register</a></li>
-            <li class="disabled">Enter Details</li>
+            <li class="disabled" style="color: black">Enter Details</li>
             <li>Payment</li>
           </ul>
-          <div class="row gy-4" data-aos="fade-left">
+          <div id="payment_pending" class="row gy-4" data-aos="fade-left">
             <div class="col-lg-12 col-md-12" data-aos="zoom-in">
               <div class="box">
-                <h3>Updating your payment status</h3>
+                <h3>Awaiting Payment Confirmation</h3>
+                <p style="color: #E42367;">Do not exit or refresh this page</p>
+                <lottie-player src="zuQ3u8ofZE.json" background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></lottie-player>
               </div>
             </div>
           </div>
+
+          <div id="payment_success"  style="display: none;" class="row gy-4" data-aos="fade-left">
+            <div class="col-lg-12 col-md-12" data-aos="zoom-in">
+              <div class="box">
+                <h3>Hurray! Your payment is successful</h3>
+                <p style="color: #E42367;">Your invoice has been emailed to you</p>
+                <lottie-player src="zuQ3u8ofZE.json" background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></lottie-player>
+                <a class="btn-prefill" href="index.html">GO TO HOME PAGE</a>
+              </div>
+            </div>
+          </div>
+
+          <div id="payment_failed" style="display: none;" class="row gy-4" data-aos="fade-left">
+            <div class="col-lg-12 col-md-12" data-aos="zoom-in">
+              <div class="box">
+                <h3>Sorry! Your payment failed</h3>
+                <p style="color: #E42367;">Please try again after sometime</p>
+                <lottie-player src="zuQ3u8ofZE.json" background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></lottie-player>
+                <a class="btn-prefill" href="index.html">GO TO HOME PAGE</a>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </div>
       <!-- End Pricing Section -->
@@ -221,18 +248,8 @@
     <!-- <script src="assets/vendor/contact-form/validate.js"></script> -->
     <script src="libs/crypto-js.min.js"></script>
     <!-- Template Main JS File -->
+
     <script src="assets/js/main.js"></script>
-    <script>
-      // var hash = CryptoJS.SHA256("Message");
-      // console.log(hash.toString(CryptoJS.enc.Hex));
-      // var crypto = require(["crypto-js"]);
-      // define(function (require) {
-      //   var name = require("crypto-js");
-      //   //Define the module as exporting a function
-      //   return function () {
-      //     name.doSomething();
-      //   };
-      // });
-    </script>
+    <script src="assets/js/payment_status.js"></script>
   </body>
 </html>

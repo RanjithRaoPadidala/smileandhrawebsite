@@ -83,17 +83,203 @@
           <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li><a href="register.html">Register</a></li>
-            <li class="disabled">Enter Details</li>
+            <li style="color: black">Enter Details</li>
             <li>Payment</li>
           </ul>
-          <div class="row gy-4" data-aos="fade-left">
-            <div class="col-lg-12 col-md-12" data-aos="zoom-in">
-              <div class="box">
-                <h3>
-                  Redirecting you to payment gateway in 10 secs for payment of
-                  Rs.9999
-                </h3>
+          
+          <div class="row gy-1">
+            <div class="col-lg-12">
+              <form id="infoForm" action="" class="contact-form"
+              style="padding: 20px 30px; height: 100%;">
+              <div class="col-lg-8" style="display: flex;margin-bottom: 30px;">
+                <div class="col-md-3">
+                  <span style="font-weight: bold;">Reference Number</span>
+                </div>
+                <div class="col-md-1">
+                  <span ></span>
+                </div>
+                <div class="col-md-5">
+                  <span style="color: #e42367;" id="registration-ref-no"></span>
+                </div>
               </div>
+              <h6 style="padding-bottom: 15px;font-weight: bold;">Your Details:</h6>
+
+                <div class="row gy-3">
+                  <div class="col-lg-8" style="display: flex;">
+                    <div class="col-md-3">
+                      <span >Name</span>
+                    </div>
+                    <div class="col-md-1">
+                      <span >:</span>
+                    </div>
+                    <div class="col-md-5">
+                      <span id="registration-name"></span>
+                    </div>
+                  </div>
+                  <div class="col-lg-8" style="display: flex;">
+                    <div class="col-md-3">
+                      <span >Company Name</span>
+                    </div>
+                    <div class="col-md-1">
+                      <span >:</span>
+                    </div>
+                    <div class="col-md-5">
+                      <span id="registration-source"></span>
+                    </div>
+                  </div>
+                  <div class="col-lg-8" style="display: flex;">
+                    <div class="col-md-3">
+                      <span >GSTIN</span>
+                    </div>
+                    <div class="col-md-1">
+                      <span >:</span>
+                    </div>
+                    <div class="col-md-5">
+                      <span id="registration-gst"></span>
+                    </div>
+                  </div>
+                  
+                
+                  <!-- <div class="col-md-12 text-center">
+                    <div class="loading">Loading</div>
+                    <div class="error-message">
+                      Sorry, your message is not sent. Please try again later.
+                    </div>
+                    <div class="sent-message">
+                      Your message has been sent. Thank you! Redirecting to
+                      payment shortly...
+                    </div>
+                    <button type="submit">Proceed to Pay</button> 
+                  </div>-->
+                </div>
+              </form>
+            </div>
+          </div>
+          
+          <div class="row gy-3">
+            <div class="col-lg-6">
+              <form id="register" action="" class="contact-form" 
+                    style="background: #fafbff; padding: 30px; height: 100%;">
+                <div class="row gy-3">
+                  <div class="col-md-12">
+                    <h6 style="padding-bottom: 15px; border-bottom: 1px solid black;font-weight: bold;">Invoice Details</h6>
+                    <div style="display: flex; justify-content: space-between; 
+                                border-bottom: 1px solid black; padding: 15px 0px; ">
+                      <span>Item Name</span>
+                      <span>Amount</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; 
+                                border-bottom: 1px solid black; padding: 15px 0px; ">
+                      <span>SMILE Andhra 2024 Pass</span>
+                      <span id="registration-fee"></span>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end;">
+                      <div class="col-md-6" style="display: flex; justify-content: space-between; 
+                                  border-bottom: 1px solid black; padding: 15px 0px; ">
+                        <span>GST at 18%</span>
+                        <span id="registration-gstfee"></span>
+                      </div>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end;">
+                      <div class="col-md-8" style="display: flex; justify-content: space-between; 
+                                  padding: 15px 0px; ">
+                        <span>Total Amount Payable</span>
+                        <span id="registration-totalfee"></span>
+                      </div>
+                    </div>
+                    <div class="row gy-3 col-lg-12 col-md-12" style="display: flex; justify-content: flex-end;">
+                      <div class="col-lg-8" style="display: flex; padding: 10px;  background: #fff;box-shadow: 0px 3px 6px #00000029;
+                      border-radius: 5px;
+                      ">
+                        <form style="display: flex;">
+                          <input type="text" style="flex: 1; display: flex; border: none;"
+                                  class="inputField" placeholder="Have a promo code ?">
+                          <a style="border: none; color: #e42367;  background: #fff;" 
+                                  name="submit" type="submit" onclick="">APPLY</a>
+                        </form>
+
+
+                          <!-- <div class="row prefill-section">
+                            <div class="col-lg-8" style="align-items: center; display: flex;">
+                              <input
+                                id="register-refnumber"
+                                type="text"
+                                class="form-control"
+                                placeholder="Have a promo code ?"
+                              />
+                            </div>
+                            <div class="col-lg-3" style="display: flex; flex-direction: column; align-items: center;">
+                              <button type="submit" class="btn-prefill">Apply</button>
+                            </div>
+                          </div> -->
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+                </div>
+              </form>
+            </div>
+            <!-- <div class="col-md-12 text-center">
+              <div class="loading">Loading</div>
+              <div class="error-message">
+                Sorry, your message is not sent. Please try again later.
+              </div>
+              <div class="sent-message">
+                Your message has been sent. Thank you! Redirecting to
+                payment shortly...
+              </div>
+              <button type="submit">Proceed to Pay</button>
+            </div> -->
+          </div>
+          <div class="row gy-3">
+            <div class="col-lg-12">
+
+              <form id="paymentForm" action="" class="contact-form"
+              style="padding: 20px 30px; height: 100%;">
+              <h6 style="padding-bottom: 15px;font-weight: bold;">Our Information:</h6>
+
+                <div class="row gy-3">
+                  <div class="col-lg-8" style="display: flex;">
+                    <div class="col-md-3">
+                      <span>Name</span>
+                    </div>
+                    <div class="col-md-1">
+                      <span >:</span>
+                    </div>
+                    <div class="col-md-8">
+                      <span>TECK MANTRIK INNOVATIONS PRIVATE LIMITED</span>
+                    </div>
+                  </div>
+               
+                  <div class="col-lg-8" style="display: flex;">
+                    <div class="col-md-3">
+                      <span >GSTIN</span>
+                    </div>
+                    <div class="col-md-1">
+                      <span >:</span>
+                    </div>
+                    <div class="col-md-5">
+                      <span >37AAKCT4442L1ZV</span>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-12 text-left">
+                    <button type="submit" class="btn-prefill">Proceed to Pay</button>
+                  </div>
+                  <!-- <div class="col-md-12 text-center">
+                    <div class="loading">Loading</div>
+                    <div class="error-message">
+                      Sorry, your message is not sent. Please try again later.
+                    </div>
+                    <div class="sent-message">
+                      Your message has been sent. Thank you! Redirecting to
+                      payment shortly...
+                    </div>
+                    <button type="submit">Proceed to Pay</button> 
+                  </div>-->
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -226,17 +412,5 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/payments.js"></script>
-    <script>
-      // var hash = CryptoJS.SHA256("Message");
-      // console.log(hash.toString(CryptoJS.enc.Hex));
-      // var crypto = require(["crypto-js"]);
-      // define(function (require) {
-      //   var name = require("crypto-js");
-      //   //Define the module as exporting a function
-      //   return function () {
-      //     name.doSomething();
-      //   };
-      // });
-    </script>
   </body>
 </html>

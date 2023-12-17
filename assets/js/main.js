@@ -50,21 +50,6 @@
   window.addEventListener("load", navbarlinksActive);
   onscroll(document, navbarlinksActive);
   /**
-   * Scrolls to an element with header offset
-   */
-  // const scrollto = (el) => {
-  //   let header = select("#header");
-  //   let offset = header.offsetHeight;
-  //   if (!header.classList.contains("header-scrolled")) {
-  //     offset -= 10;
-  //   }
-  //   let elementPos = select(el).offsetTop;
-  //   window.scrollTo({
-  //     top: elementPos - offset,
-  //     behavior: "smooth",
-  //   });
-  // };
-  /**
    * Toggle .header-scrolled class to #header when page is scrolled
    */
   let selectHeader = select("#header");
@@ -138,126 +123,11 @@
     true
   );
   /**
-   * Scroll with ofset on page load with hash links in the url
-   */
-  // window.addEventListener("load", () => {
-  //   if (window.location.hash) {
-  //     if (select(window.location.hash)) {
-  //       scrollto(window.location.hash);
-  //     }
-  //   }
-  // });
-  /**
-   * Clients Slider
-   */
-  // new Swiper(".clients-slider", {
-  //   speed: 400,
-  //   loop: true,
-  //   autoplay: {
-  //     delay: 5000,
-  //     disableOnInteraction: false,
-  //   },
-  //   slidesPerView: "auto",
-  //   pagination: {
-  //     el: ".swiper-pagination",
-  //     type: "bullets",
-  //     clickable: true,
-  //   },
-  //   breakpoints: {
-  //     320: {
-  //       slidesPerView: 2,
-  //       spaceBetween: 40,
-  //     },
-  //     480: {
-  //       slidesPerView: 3,
-  //       spaceBetween: 60,
-  //     },
-  //     640: {
-  //       slidesPerView: 4,
-  //       spaceBetween: 80,
-  //     },
-  //     992: {
-  //       slidesPerView: 6,
-  //       spaceBetween: 120,
-  //     },
-  //   },
-  // });
-  /**
-   * Porfolio isotope and filter
-   */
-  // window.addEventListener("load", () => {
-  //   let portfolioContainer = select(".portfolio-container");
-  //   if (portfolioContainer) {
-  //     // let portfolioIsotope = new Isotope(portfolioContainer, {
-  //     //   itemSelector: ".portfolio-item",
-  //     //   layoutMode: "fitRows",
-  //     // });
-  //     // let portfolioFilters = select("#portfolio-flters li", true);
-  //     // on(
-  //     //   "click",
-  //     //   "#portfolio-flters li",
-  //     //   function (e) {
-  //     //     e.preventDefault();
-  //     //     portfolioFilters.forEach(function (el) {
-  //     //       el.classList.remove("filter-active");
-  //     //     });
-  //     //     this.classList.add("filter-active");
-  //     //     portfolioIsotope.arrange({
-  //     //       filter: this.getAttribute("data-filter"),
-  //     //     });
-  //     //     aos_init();
-  //     //   },
-  //     //   true
-  //     // );
-  //   }
-  // });
-  /**
    * Initiate portfolio lightbox
    */
   const portfolioLightbox = GLightbox({
     selector: ".portfokio-lightbox",
   });
-  /**
-   * Portfolio details slider
-   */
-  // new Swiper(".portfolio-details-slider", {
-  //   speed: 400,
-  //   autoplay: {
-  //     delay: 5000,
-  //     disableOnInteraction: false,
-  //   },
-  //   pagination: {
-  //     el: ".swiper-pagination",
-  //     type: "bullets",
-  //     clickable: true,
-  //   },
-  // });
-  /**
-   * Testimonials slider
-   */
-  // new Swiper(".testimonials-slider", {
-  //   speed: 600,
-  //   loop: true,
-  //   autoplay: {
-  //     delay: 5000,
-  //     disableOnInteraction: false,
-  //   },
-  //   slidesPerView: "auto",
-  //   pagination: {
-  //     el: ".swiper-pagination",
-  //     type: "bullets",
-  //     clickable: true,
-  //   },
-  //   breakpoints: {
-  //     320: {
-  //       slidesPerView: 1,
-  //       spaceBetween: 40,
-  //     },
-  //     1200: {
-  //       slidesPerView: 3,
-  //     },
-  //   },
-  // });
   /**
    * Animation on scroll
    */
@@ -409,13 +279,28 @@ if (registerForm) {
       formData.append("problem_statement", problem_statement?.value);
       formData.append("technology_stage", technology_stage?.value);
       formData.append("email", email.value);
-      formData.append("enterprise", enterprise?.value);
-      formData.append("investor_name", investor_name?.value);
-      formData.append("college_name", college_name?.value);
-      formData.append("startup_name", startup_name?.value);
-      formData.append("msme", msme?.value);
-      formData.append("website_link", website_link?.value);
-      formData.append("gst", gst?.value);
+      formData.append(
+        "enterprise",
+        enterprise?.value ? enterprise?.value : null
+      );
+      formData.append(
+        "investor_name",
+        investor_name?.value ? investor_name?.value : null
+      );
+      formData.append(
+        "college_name",
+        college_name?.value ? college_name?.value : null
+      );
+      formData.append(
+        "startup_name",
+        startup_name?.value ? startup_name?.value : null
+      );
+      formData.append("msme", msme?.value ? msme?.value : null);
+      formData.append(
+        "website_link",
+        website_link?.value ? website_link?.value : null
+      );
+      formData.append("gst", gst?.value ? gst?.value : null);
       let application_type = "";
       if (enterprise?.value) {
         application_type = "ENTERPRISE";
@@ -434,12 +319,14 @@ if (registerForm) {
       const ref_number = document.getElementById("register-refnumber")?.value;
       console.log(ref_number);
       let method = "POST";
-      if(ref_number) {
+      if (ref_number) {
         method = "PUT";
         formData.append("application_reference", ref_number);
-        console.log( localStorage.getItem("prefillRegistrationDetails"));
+        console.log(localStorage.getItem("prefillRegistrationDetails"));
         if (localStorage.getItem("prefillRegistrationDetails")) {
-          let registration_id = JSON.parse(localStorage.getItem("prefillRegistrationDetails"))?.registration_id;
+          let registration_id = JSON.parse(
+            localStorage.getItem("prefillRegistrationDetails")
+          )?.registration_id;
           formData.append("registration_id", registration_id);
         }
         // formData.append("registration_id", ref_number);
@@ -499,24 +386,37 @@ if (registerForm) {
 
 async function getRegistrationDetails() {
   const ref_number = document.getElementById("register-refnumber")?.value;
-  console.log('prefill called', ref_number);
-  if(!ref_number) {
+  console.log("prefill called", ref_number);
+  if (!ref_number) {
     alert("Please enter valid reference number");
   }
-  const response = await fetch(`https://api.smileandhra.in/api/register?application_reference=${ref_number}`, {
-    method: "GET",
-  });
+  const response = await fetch(
+    `https://api.smileandhra.in/api/register?application_reference=${ref_number}`,
+    {
+      method: "GET",
+    }
+  );
   const res_obj = await response.json();
-  console.log(res_obj);     
-  if(res_obj?.success && res_obj?.info) {
-    localStorage.setItem("prefillRegistrationDetails", JSON.stringify(res_obj?.info));
+  console.log(res_obj);
+  if (res_obj?.success && res_obj?.info) {
+    localStorage.setItem(
+      "prefillRegistrationDetails",
+      JSON.stringify(res_obj?.info)
+    );
     for (let key in res_obj.info) {
       console.log(key, res_obj.info[key]);
-      if (document.getElementById(`register-${key}`)) {
-        if(key === "problem_statement" || key === "technology_stage") {
-          document.getElementById(`register-${key}`).innerHTML = res_obj?.info[key];
+      if (
+        document.getElementById(`register-${key}`) &&
+        res_obj.info[key] !== "undefined" &&
+        res_obj.info[key] !== undefined
+      ) {
+        if (key === "problem_statement" || key === "technology_stage") {
+          document.getElementById(`register-${key}`).innerHTML =
+            res_obj?.info[key];
         } else {
-          document.getElementById(`register-${key}`).setAttribute('value', res_obj?.info[key]);
+          document
+            .getElementById(`register-${key}`)
+            .setAttribute("value", res_obj?.info[key]);
         }
       }
     }

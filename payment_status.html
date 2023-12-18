@@ -30,7 +30,6 @@
     <link href="assets/css/navbar.css" rel="stylesheet" />
     <link href="assets/css/breadcrum.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
-    <!-- <script data-main="libs/main" src="libs/require.js"></script> -->
   </head>
   <body>
     <!-- ======= Header ======= -->
@@ -91,35 +90,79 @@
             <div class="col-lg-12 col-md-12" data-aos="zoom-in">
               <div class="box">
                 <h3>Awaiting Payment Confirmation</h3>
-                <p style="color: #E42367;">Do not exit or refresh this page</p>
-                <lottie-player src="zuQ3u8ofZE.json" background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></lottie-player>
+                <p style="color: #e42367">Do not exit or refresh this page</p>
+
+                <div
+                  class="col-lg-8 col-md-8"
+                  style="width: 40%"
+                  id="animation loading"
+                ></div>
+                <script>
+                  var animation = bodymovin.loadAnimation({
+                    container: document.getElementById(`animation loading`),
+                    path: `assets/js/PaymentLoading.json`,
+                    render: `svg`,
+                  });
+                </script>
               </div>
             </div>
           </div>
 
-          <div id="payment_success"  style="display: none;" class="row gy-4" data-aos="fade-left">
+          <div
+            id="payment_success"
+            style="display: none"
+            class="row gy-4"
+            data-aos="fade-left"
+          >
             <div class="col-lg-12 col-md-12" data-aos="zoom-in">
               <div class="box">
                 <h3>Hurray! Your payment is successful</h3>
-                <p style="color: #E42367;">Your invoice has been emailed to you</p>
-                <lottie-player src="zuQ3u8ofZE.json" background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></lottie-player>
+                <p style="color: #e42367">
+                  Your invoice has been emailed to you
+                </p>
+                <div
+                  class="col-lg-8 col-md-8"
+                  style="width: 15%"
+                  id="animation success"
+                ></div>
+                <script>
+                  var animation = bodymovin.loadAnimation({
+                    container: document.getElementById(`animation success`),
+                    path: `assets/js/PaymentSuccess.json`,
+                    render: `svg`,
+                  });
+                </script>
                 <a class="btn-prefill" href="index.html">GO TO HOME PAGE</a>
               </div>
             </div>
           </div>
 
-          <div id="payment_failed" style="display: none;" class="row gy-4" data-aos="fade-left">
+          <div
+            id="payment_failed"
+            style="display: none"
+            class="row gy-4"
+            data-aos="fade-left"
+          >
             <div class="col-lg-12 col-md-12" data-aos="zoom-in">
               <div class="box">
                 <h3>Sorry! Your payment failed</h3>
-                <p style="color: #E42367;">Please try again after sometime</p>
-                <lottie-player src="zuQ3u8ofZE.json" background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></lottie-player>
+                <p style="color: #e42367">Please try again after sometime</p>
+                <div
+                  class="col-lg-8 col-md-8"
+                  style="width: 15%"
+                  id="animation failed"
+                ></div>
+                <script>
+                  var animation = bodymovin.loadAnimation({
+                    container: document.getElementById(`animation failed`),
+                    path: `assets/js/PaymentFailed.json`,
+                    render: `svg`,
+                  });
+                </script>
                 <a class="btn-prefill" href="index.html">GO TO HOME PAGE</a>
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
       <!-- End Pricing Section -->

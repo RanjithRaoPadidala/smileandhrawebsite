@@ -507,8 +507,8 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
-  margin: 20px;
+  padding: 20px;
+  margin: 10px;
   background: #fff;
   text-align: center;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
@@ -552,8 +552,8 @@ section {
   list-style: none;
   color: #444444;
   text-align: center;
-  line-height: 26px;
-  font-size: 16px;
+  /* line-height: 26px; */
+  font-size: 14px;
   margin-bottom: 25px;
 }
 .pricing ul li {
@@ -1429,7 +1429,6 @@ section {
   font-weight: 800;
 }
 
-
 .btn-prefill {
   display: inline-block;
   padding: 8px 40px 8px 40px;
@@ -1451,14 +1450,14 @@ section {
   color: #fff;
 }
 
-.prefill-section span{
+.prefill-section span {
   text-align: end;
 }
 @media (max-width: 768px) {
   .prefill-section {
     padding: 0 10%;
   }
-  .prefill-section span{
+  .prefill-section span {
     text-align: center;
     margin: 20px 0 10px 0;
   }

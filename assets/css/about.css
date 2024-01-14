@@ -76,11 +76,12 @@ section {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: #4154f1;
-  width: 40px;
-  height: 40px;
+  background: #e42367;
+  width: 50px;
+  height: 50px;
   border-radius: 4px;
   transition: all 0.4s;
+  border-radius: 25px;
 }
 .back-to-top i {
   font-size: 24px;
@@ -416,4 +417,58 @@ section {
   font-weight: 700;
   margin: 0 0 10px 0;
   color: #492080;
+}
+.button-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 99999;
+  left: 15px;
+  bottom: 5px;
+  background: rgb(228, 35, 103);
+  width: 95%;
+  height: 35px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+.button-to-top span {
+  font-size: 22px;
+  color: #fff;
+  line-height: 0;
+}
+.button-to-top:hover {
+  background: #6776f4;
+  color: #fff;
+}
+.button-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .button-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 99999;
+    left: 11px;
+    bottom: 5px;
+    background: rgb(228, 35, 103);
+    width: 80%;
+    height: 35px;
+    border-radius: 4px;
+    transition: all 0.4s;
+  }
+  .button-to-top span {
+    font-size: 17px;
+    color: #fff;
+    line-height: 0;
+  }
+  .button-to-top:hover {
+    background: #6776f4;
+    color: #fff;
+  }
+  .button-to-top.active {
+    visibility: visible;
+    opacity: 1;
+  }
 }

@@ -315,7 +315,6 @@ if (registerForm) {
       }
       formData.append("application_type", application_type);
       localStorage.setItem("application_type", application_type);
-
       const ref_number = document.getElementById("register-refnumber")?.value;
       console.log(ref_number);
       let method = "POST";
@@ -383,7 +382,6 @@ if (registerForm) {
     }
   });
 }
-
 async function getRegistrationDetails() {
   const ref_number = document.getElementById("register-refnumber")?.value;
   console.log("prefill called", ref_number);

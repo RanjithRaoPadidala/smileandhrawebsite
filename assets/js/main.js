@@ -102,6 +102,41 @@
     true
   );
   /**
+   * Clients Slider
+   */
+  new Swiper(".clients-slider", {
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    slidesPerView: "auto",
+    pagination: {
+      el: ".swiper-pagination",
+      type: "bullets",
+      clickable: true,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+        spaceBetween: 40,
+      },
+      480: {
+        slidesPerView: 3,
+        spaceBetween: 60,
+      },
+      640: {
+        slidesPerView: 4,
+        spaceBetween: 80,
+      },
+      992: {
+        slidesPerView: 6,
+        spaceBetween: 120,
+      },
+    },
+  });
+  /**
    * Scrool with ofset on links with a class name .scrollto
    */
   on(
@@ -419,4 +454,56 @@ async function getRegistrationDetails() {
       }
     }
   }
+}
+async function getSpeakerDetails() {
+  const response = await fetch(
+    `https://api.smileandhra.in/api/backoffice/speakers`,
+    {
+      method: "GET",
+    }
+  );
+  const res_obj = await response.json();
+  if (res_obj?.success && res_obj?.info) {
+    let speakersData = "";
+    let image = "assets/img/team-1.jpg";
+    for (let i = 0; i < res_obj.info.length; i++) {
+      speakersData += `<div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+      <div class="member">
+        <div class="member-img">
+          <img src=${image} class="img-fluid" alt="">
+        </div>
+        <div class="member-info">
+          <h4>${res_obj.info[i].name} </h4>
+          <span>${res_obj.info[i].designation} </span>
+          <p>${res_obj.info[i].company}</p>
+        </div>
+      </div>
+      </div>`;
+    }
+    document.getElementById("speakersList").innerHTML = speakersData;
+  }
+}
+if (document.getElementById("speakersList")) {
+  getSpeakerDetails();
+}
+async function getPartnerDetails() {
+  const response = await fetch(
+    `https://api.smileandhra.in/api/backoffice/partners`,
+    {
+      method: "GET",
+    }
+  );
+  const res_obj = await response.json();
+  if (res_obj?.success && res_obj?.info) {
+    let speakersData = "";
+    let image = "assets/img/team-1.jpg";
+    for (let i = 0; i < res_obj.info.length; i++) {
+      speakersData += `  <div class="swiper-slide"><img src=${res_obj.info[i].image} class="img-fluid" alt="">
+      <h2>${res_obj.info[i].name}</h2></div>`;
+    }
+    document.getElementById("partnersList").innerHTML = speakersData;
+  }
+}
+if (document.getElementById("partnersList")) {
+  getPartnerDetails();
 }

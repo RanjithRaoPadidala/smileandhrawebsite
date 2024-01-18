@@ -400,6 +400,10 @@ if (registerForm) {
           msme.value = "";
         }
         localStorage.setItem("Registrationdetails", JSON.stringify(res_obj));
+        localStorage.setItem(
+          "OriginalRegistrationdetails",
+          JSON.stringify(res_obj)
+        );
         if (res_obj.success) {
           const msgStatus = "sent-message";
           const responseElement = document.getElementsByClassName(msgStatus);

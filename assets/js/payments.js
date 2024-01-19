@@ -1,6 +1,6 @@
 localStorage.removeItem("appliedPromoDetails");
-function getPaymentValues(application_type = "STARTUP", promoCodeDiscount = 0) {
-  let original_fees = application_type === "STARTUP" ? 9990 : 19990;
+function getPaymentValues(application_type = "COLLEGE", promoCodeDiscount = 0) {
+  let original_fees = application_type === "COLLEGE" ? 9990 : 19990;
   let original_gst = Math.ceil(original_fees * (18 / 100));
   let original_total_payment = original_fees + original_gst;
   let pass_fees = original_fees;

@@ -206,7 +206,16 @@
                       "
                     >
                       <span>SMILE Andhra 2024 Pass</span>
-                      <span id="registration-fee"></span>
+                      <div>
+                        <span class="strikediag"
+                          ><span
+                            id="registration-oldfee"
+                            style="color: black"
+                          ></span
+                        ></span>
+                        &nbsp;&nbsp;
+                        <span id="registration-fee"></span>
+                      </div>
                     </div>
                     <div style="display: flex; justify-content: flex-end">
                       <div
@@ -232,12 +241,28 @@
                         "
                       >
                         <span>Total Amount Payable</span>
-                        <span id="registration-totalfee"></span>
+                        <div>
+                          <span class="strikediag"
+                            ><span
+                              id="registration-oldtotalfee"
+                              style="color: black"
+                            ></span
+                          ></span>
+                          &nbsp;&nbsp;
+                          <span
+                            id="registration-totalfee"
+                            style="color: black"
+                          ></span>
+                        </div>
                       </div>
                     </div>
                     <div
-                      class="row gy-3 col-lg-12 col-md-12"
-                      style="display: flex; justify-content: flex-end"
+                      class="row gy-3 col-lg-8 col-md-8"
+                      style="
+                        display: flex;
+                        /* justify-content: flex-end; */
+                        float: right;
+                      "
                     >
                       <div
                         class="col-lg-8"

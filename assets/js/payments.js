@@ -23,6 +23,16 @@ function getPaymentValues(application_type = "COLLEGE", promoCodeDiscount = 0) {
     document.getElementById("registration-totalfee").innerHTML =
       formattedPrice(total_payment);
   }
+  if (promoCodeDiscount > 0) {
+    if (document.getElementById("registration-oldfee")) {
+      document.getElementById("registration-oldfee").innerHTML =
+        formattedPrice(original_fees);
+    }
+    if (document.getElementById("registration-oldtotalfee")) {
+      document.getElementById("registration-oldtotalfee").innerHTML =
+        formattedPrice(original_total_payment);
+    }
+  }
   return {
     original_fees,
     original_total_payment,
@@ -214,4 +224,10 @@ function resetPromoCode() {
   applyPromo.style["cursor"] = "pointer";
   promoCode.readOnly = false;
   promoCode.style.color = "black";
+  if (document.getElementById("registration-oldfee")) {
+    document.getElementById("registration-oldfee").innerHTML = "";
+  }
+  if (document.getElementById("registration-oldtotalfee")) {
+    document.getElementById("registration-oldtotalfee").innerHTML = "";
+  }
 }

@@ -1,12 +1,17 @@
 localStorage.removeItem("appliedPromoDetails");
-function getPaymentValues(application_type = "COLLEGE", promoCodeDiscount = 0) {
+function getPaymentValues(
+  application_type = "COLLEGE",
+  promoCodeDiscount = 0,
+  maxDiscount = 0
+) {
   let original_fees = application_type === "COLLEGE" ? 9990 : 19990;
   let original_gst = Math.ceil(original_fees * (18 / 100));
   let original_total_payment = original_fees + original_gst;
   let pass_fees = original_fees;
   if (promoCodeDiscount > 0) {
     pass_fees = Math.ceil(
-      original_fees - original_fees * (promoCodeDiscount / 100)
+      original_fees -
+        Math.min(...[maxDiscount, original_fees * (promoCodeDiscount / 100)])
     );
   }
   let gst_fees = Math.ceil(pass_fees * (18 / 100));
@@ -179,7 +184,8 @@ async function applyPromoCode() {
   ) {
     let promoCodePrices = getPaymentValues(
       application_type,
-      +res_obj?.info?.discount_percentage
+      +res_obj?.info?.discount_percentage,
+      +res_obj?.info?.max_discount
     );
     console.log(
       JSON.stringify({

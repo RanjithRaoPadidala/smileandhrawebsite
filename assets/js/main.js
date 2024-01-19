@@ -351,7 +351,6 @@ if (registerForm) {
       formData.append("application_type", application_type);
       localStorage.setItem("application_type", application_type);
       const ref_number = document.getElementById("register-refnumber")?.value;
-      console.log(ref_number);
       let method = "POST";
       if (ref_number) {
         method = "PUT";
